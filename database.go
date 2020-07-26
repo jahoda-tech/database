@@ -48,12 +48,14 @@ type State struct {
 
 type StateRecord struct {
 	gorm.Model
-	DateTimeStart time.Time
-	StateID       int
-	State         State
-	WorkplaceID   int
-	Workplace     Workplace
-	Note          string
+	DateTimeStart   time.Time
+	StateID         int
+	State           State
+	WorkplaceID     int
+	Workplace       Workplace
+	WorkplaceModeID int
+	WorkplaceMode   WorkplaceMode
+	Note            string
 }
 
 type UserRecord struct {
