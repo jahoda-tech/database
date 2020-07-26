@@ -18,6 +18,7 @@ adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 ## [2020.3.1.26] - 2020-07-26
 ### Changed
 - changed repo name to "database"
+- changed create.sh
 
 ## [2020.3.1.26] - 2020-07-26
 ### Removed
@@ -76,15 +77,6 @@ adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 ### Fixed
 - proper creating mssql database, NO ACTION instead of RESTRICT
 - proper creating all databases (instead of using gorm.model own columns used)
-
-## [2020.3.1.26] - 2020-07-26
-
-### Changed
-- removed all other databases, except PostgreSQL
-- changed create.sh
-- changed to GORM v2
-- change in database structure
-
 
 ## [2020.1.1.1] - 2020-01-01
 
