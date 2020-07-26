@@ -1,0 +1,85 @@
+# Database Changelog
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
+
+Please note, that this project, while following numbering syntax, it DOES NOT
+adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
+
+## Types of changes
+
+* ```Added``` for new features.
+* ```Changed``` for changes in existing functionality.
+* ```Deprecated``` for soon-to-be removed features.
+* ```Removed``` for now removed features.
+* ```Fixed``` for any bug fixes.
+* ```Security``` in case of vulnerabilities.
+
+
+## [2020.3.1.26] - 2020-07-26
+### Changed
+- changed repo name to "database"
+
+## [2020.3.1.26] - 2020-07-26
+### Removed
+- removed ActualDataDateTime and ActualData from DevicePort
+
+## [2020.3.1.22] - 2020-07-22
+### Removed
+- mariadb image
+- sql server image
+- timescale image
+
+### Changed
+- change to gorm v2
+- updated tables structure
+
+## [2020.2.3.27] - 2020-06-27
+
+### Changed
+- updated postgres image
+### Added
+- added timescale image
+
+## [2020.2.4.2] - 2020-04-02
+
+### Added
+- add image column to workpplace
+
+## [2020.1.3.5] - 2020-03-05
+
+### Added
+- workplace_id to DownTimeRecord
+
+## [2020.1.2.29] - 2020-02-29
+
+### Removed
+- MySQL database
+
+
+## [2020.1.2.28] - 2020-02-28
+
+### Added
+- MySQL database, latest version from dockerhub
+- Automatic pulling latest official database image when creating zapsi database image
+- New table SystemRecords for system information
+- New table DeviceWorkplaceRecords for pairing devices and workplaces
+- Creating MySQL database
+- Creating SQLServer database
+### Changed
+- database name changed to zapsi3
+- PostgreSQL database, upgraded to latest version from dockerhub
+- MariaDB database, upgraded to latest version from dockerhub
+- SQLServer database, upgraded to latest version from dockerhub
+- password for mails is saved encrypted in database
+### Removed
+- WorkplaceId from devices table
+### Fixed
+- proper creating mssql database, NO ACTION instead of RESTRICT
+- proper creating all databases (instead of using gorm.model own columns used)
+
+## [2020.1.1.1] - 2020-01-01
+
+### Added
+- PostgreSQL database
+- MariaDB database
+- SQLServer database
