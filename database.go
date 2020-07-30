@@ -75,12 +75,8 @@ type DownTimeRecord struct {
 	Device        Device
 	WorkplaceID   int
 	Workplace     Workplace
-	OrderRecordID int
-	OrderRecord   OrderRecord
 	DowntimeID    int
 	Downtime      Downtime
-	UserID        int
-	User          User
 	Note          string
 }
 
