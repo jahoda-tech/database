@@ -62,7 +62,7 @@ type UserRecord struct {
 	DateTimeEnd   sql.NullTime
 	OrderRecordID int `gorm:"uniqueIndex:unique_user_data"`
 	OrderRecord   OrderRecord
-	WorkplaceID   int `gorm:"uniqueIndex:unique_downtime_data"`
+	WorkplaceID   int `gorm:"uniqueIndex:unique_user_data"`
 	Workplace     Workplace
 	UserID        int `gorm:"uniqueIndex:unique_user_data"`
 	User          User
@@ -395,7 +395,7 @@ type DeviceWorkplaceRecord struct {
 type DevicePort struct {
 	gorm.Model
 	Name             string `gorm:"uniqueIndex:device_port_data"`
-	DeviceID         int    `gorm:"uniqueIndex:device_workplace_data"`
+	DeviceID         int    `gorm:"uniqueIndex:device_port_data"`
 	Device           Device
 	DevicePortTypeID int
 	DevicePortType   DevicePortType
