@@ -10,4 +10,4 @@ Fourth: ....Id in alphabetical order
 Fifth: the rest in alphabetical order
 Last: Note
 
-Petr Jahoda © 2020
+tGMS © 2020 Petr Jahoda
