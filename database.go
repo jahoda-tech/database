@@ -404,7 +404,7 @@ type DevicePort struct {
 	PlcDataAddress   string
 	Settings         string
 	Unit             string
-	Virtual          bool
+	Virtual          bool `gorm:"default:false"`
 	Note             string
 }
 
