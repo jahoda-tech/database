@@ -21,13 +21,13 @@ type Alarm struct {
 
 type AlarmRecord struct {
 	gorm.Model
-	DateTimeStart     time.Time
+	DateTimeStart     time.Time `gorm:"uniqueIndex:unique_alarm_data"`
 	DateTimeEnd       sql.NullTime
 	DateTimeProcessed sql.NullTime
 	Duration          time.Duration
-	AlarmID           int
+	AlarmID           int `gorm:"uniqueIndex:unique_alarm_data"`
 	Alarm             Alarm
-	WorkplaceID       int
+	WorkplaceID       int `gorm:"uniqueIndex:unique_alarm_data"`
 	Workplace         Workplace
 }
 
@@ -48,48 +48,46 @@ type State struct {
 
 type StateRecord struct {
 	gorm.Model
-	DateTimeStart time.Time
+	DateTimeStart time.Time `gorm:"uniqueIndex:unique_state_data"`
 	StateID       int
 	State         State
-	WorkplaceID   int
+	WorkplaceID   int `gorm:"uniqueIndex:unique_state_data"`
 	Workplace     Workplace
 	Note          string
 }
 
 type UserRecord struct {
 	gorm.Model
-	DateTimeStart time.Time
+	DateTimeStart time.Time `gorm:"uniqueIndex:unique_user_data"`
 	DateTimeEnd   sql.NullTime
-	OrderRecordID int
+	OrderRecordID int `gorm:"uniqueIndex:unique_user_data"`
 	OrderRecord   OrderRecord
-	UserID        int
+	WorkplaceID   int `gorm:"uniqueIndex:unique_downtime_data"`
+	Workplace     Workplace
+	UserID        int `gorm:"uniqueIndex:unique_user_data"`
 	User          User
 	Note          string
 }
 
 type DownTimeRecord struct {
 	gorm.Model
-	DateTimeStart time.Time
+	DateTimeStart time.Time `gorm:"uniqueIndex:unique_downtime_data"`
 	DateTimeEnd   sql.NullTime
-	DeviceID      int
-	Device        Device
-	WorkplaceID   int
+	WorkplaceID   int `gorm:"uniqueIndex:unique_downtime_data"`
 	Workplace     Workplace
-	DowntimeID    int
+	DowntimeID    int `gorm:"uniqueIndex:unique_downtime_data"`
 	Downtime      Downtime
 	Note          string
 }
 
 type BreakdownRecord struct {
 	gorm.Model
-	DateTimeStart time.Time
+	DateTimeStart time.Time `gorm:"uniqueIndex:unique_breakdown_data"`
 	DateTimeEnd   sql.NullTime
-	BreakdownID   int
+	BreakdownID   int `gorm:"uniqueIndex:unique_breakdown_data"`
 	Breakdown     Breakdown
-	DeviceID      int
-	Device        Device
-	OrderRecordID int
-	OrderRecord   OrderRecord
+	WorkplaceID   int `gorm:"uniqueIndex:unique_breakdown_data"`
+	Workplace     Workplace
 	UserID        int
 	User          User
 	Note          string
@@ -97,13 +95,13 @@ type BreakdownRecord struct {
 
 type FaultRecord struct {
 	gorm.Model
-	DateTime      time.Time
-	DeviceID      int
-	Device        Device
+	DateTime      time.Time `gorm:"uniqueIndex:unique_fault_data"`
 	OrderRecordID int
 	OrderRecord   OrderRecord
-	FaultID       int
+	FaultID       int `gorm:"uniqueIndex:unique_fault_data"`
 	Fault         Fault
+	WorkplaceID   int `gorm:"uniqueIndex:unique_fault_data"`
+	Workplace     Workplace
 	UserID        int
 	User          User
 	Count         int
@@ -112,13 +110,13 @@ type FaultRecord struct {
 
 type PackageRecord struct {
 	gorm.Model
-	DateTime      time.Time
-	DeviceID      int
-	Device        Device
+	DateTime      time.Time `gorm:"uniqueIndex:unique_package_data"`
 	OrderRecordID int
 	OrderRecord   OrderRecord
-	PackageID     int
+	PackageID     int `gorm:"uniqueIndex:unique_package_data"`
 	Package       Package
+	WorkplaceID   int `gorm:"uniqueIndex:unique_package_data"`
+	Workplace     Workplace
 	UserID        int
 	User          User
 	Count         int
@@ -127,13 +125,13 @@ type PackageRecord struct {
 
 type PartRecord struct {
 	gorm.Model
-	DateTime      time.Time
-	DeviceID      int
-	Device        Device
+	DateTime      time.Time `gorm:"uniqueIndex:unique_part_data"`
 	OrderRecordID int
 	OrderRecord   OrderRecord
-	PartID        int
+	PartID        int `gorm:"uniqueIndex:unique_part_data"`
 	Part          Part
+	WorkplaceID   int `gorm:"uniqueIndex:unique_part_data"`
+	Workplace     Workplace
 	UserID        int
 	User          User
 	Count         int
@@ -142,15 +140,13 @@ type PartRecord struct {
 
 type OrderRecord struct {
 	gorm.Model
-	DateTimeStart   time.Time
+	DateTimeStart   time.Time `gorm:"uniqueIndex:unique_order_data"`
 	DateTimeEnd     sql.NullTime
-	DeviceID        int
-	Device          Device
-	OrderID         int
+	OrderID         int `gorm:"uniqueIndex:unique_order_data"`
 	Order           Order
-	OperationID     int
+	OperationID     int `gorm:"uniqueIndex:unique_order_data"`
 	Operation       Operation
-	WorkplaceID     int
+	WorkplaceID     int `gorm:"uniqueIndex:unique_order_data"`
 	Workplace       Workplace
 	WorkplaceModeID int
 	WorkplaceMode   WorkplaceMode
@@ -222,8 +218,8 @@ type Workplace struct {
 
 type WorkplacePort struct {
 	gorm.Model
-	Name         string
-	DevicePortID int
+	Name         string `gorm:"uniqueIndex:unique_workplace_port_data"`
+	DevicePortID int    `gorm:"uniqueIndex:unique_workplace_port_data"`
 	DevicePort   DevicePort
 	StateID      int
 	State        State
@@ -246,9 +242,9 @@ type WorkplaceMode struct {
 }
 type WorkplaceWorkshift struct {
 	gorm.Model
-	WorkplaceID int
+	WorkplaceID int `gorm:"uniqueIndex:unique_workplace_workshift_data"`
 	Workplace   Workplace
-	WorkshiftID int
+	WorkshiftID int `gorm:"uniqueIndex:unique_workplace_workshift_data"`
 	Workshift   Workshift
 }
 type Workshift struct {
@@ -261,15 +257,15 @@ type Workshift struct {
 
 type User struct {
 	gorm.Model
-	FirstName  string
-	SecondName string
+	FirstName  string `gorm:"uniqueIndex:username_data"`
+	SecondName string `gorm:"uniqueIndex:username_data"`
 	UserRoleID int
 	UserRole   UserRole
 	UserTypeID int
 	UserType   UserType
 	Barcode    string
 	Email      string
-	Login      string
+	Login      string `gorm:"uniqueIndex:username_data"`
 	Password   string
 	Phone      string
 	Pin        string
@@ -390,16 +386,16 @@ type Device struct {
 
 type DeviceWorkplaceRecord struct {
 	gorm.Model
-	DeviceID    int
+	DeviceID    int `gorm:"uniqueIndex:device_workplace_data"`
 	Device      Device
-	WorkplaceID int
+	WorkplaceID int `gorm:"uniqueIndex:device_workplace_data"`
 	Workplace   Workplace
 }
 
 type DevicePort struct {
 	gorm.Model
-	Name             string
-	DeviceID         int
+	Name             string `gorm:"uniqueIndex:device_port_data"`
+	DeviceID         int    `gorm:"uniqueIndex:device_workplace_data"`
 	Device           Device
 	DevicePortTypeID int
 	DevicePortType   DevicePortType
@@ -413,25 +409,25 @@ type DevicePort struct {
 }
 
 type DevicePortAnalogRecord struct {
-	ID           int       `gorm:"primary_key"`
-	DateTime     time.Time `gorm:"unique_index:unique_analog_data"`
-	DevicePortID int       `gorm:"unique_index:unique_analog_data"`
+	ID           int       `gorm:"primaryKey"`
+	DateTime     time.Time `gorm:"uniqueIndex:unique_analog_data"`
+	DevicePortID int       `gorm:"uniqueIndex:unique_analog_data"`
 	DevicePort   DevicePort
 	Data         float32
 }
 
 type DevicePortDigitalRecord struct {
-	ID           int       `gorm:"primary_key"`
-	DateTime     time.Time `gorm:"unique_index:unique_digital_data"`
-	DevicePortID int       `gorm:"unique_index:unique_digital_data"`
+	ID           int       `gorm:"primaryKey"`
+	DateTime     time.Time `gorm:"uniqueIndex:unique_digital_data"`
+	DevicePortID int       `gorm:"uniqueIndex:unique_digital_data"`
 	DevicePort   DevicePort
 	Data         int
 }
 
 type DevicePortSerialRecord struct {
-	ID           int       `gorm:"primary_key"`
-	DateTime     time.Time `gorm:"unique_index:unique_serial_data"`
-	DevicePortID int       `gorm:"unique_index:unique_serial_data"`
+	ID           int       `gorm:"primaryKey"`
+	DateTime     time.Time `gorm:"uniqueIndex:unique_serial_data"`
+	DevicePortID int       `gorm:"uniqueIndex:unique_serial_data"`
 	DevicePort   DevicePort
 	Data         float32
 }
