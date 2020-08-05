@@ -24,7 +24,6 @@ type AlarmRecord struct {
 	DateTimeStart     time.Time `gorm:"uniqueIndex:unique_alarm_data"`
 	DateTimeEnd       sql.NullTime
 	DateTimeProcessed sql.NullTime
-	Duration          time.Duration
 	AlarmID           int `gorm:"uniqueIndex:unique_alarm_data"`
 	Alarm             Alarm
 	WorkplaceID       int `gorm:"uniqueIndex:unique_alarm_data"`

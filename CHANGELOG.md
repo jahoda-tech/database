@@ -14,6 +14,10 @@ adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+## [2020.3.2.5] - 2020-08-05
+### Changed
+- removed Duration from Alarm
+
 ## [2020.3.2.4] - 2020-08-04
 ### Fixed
 - fixed proper indexes for all tables
