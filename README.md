@@ -17,7 +17,7 @@
 
 ## Description
 Go module that holds database structure, used in every system service.
-PostgreSQL 12 is used as a database service.
+PostgreSQL 13 is used as a database service.
 
 ## Installation Information
 Install under docker runtime using [this dockerfile image](https://github.com/petrjahoda/system/tree/master/latest) with this command: ```docker-compose up -d```
