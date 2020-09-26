@@ -3,7 +3,7 @@ cd ..
 go get -u all
 cd postgres
 
-docker pull postgres:13-alpine
+docker pull postgres:alpine
 docker rmi -f petrjahoda/database:latest
 docker build -t petrjahoda/database:latest .
 docker push petrjahoda/database:latest
