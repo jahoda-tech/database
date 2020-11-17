@@ -431,3 +431,18 @@ type DevicePortSerialRecord struct {
 	DevicePort   DevicePort
 	Data         float32
 }
+
+type Locale struct {
+	gorm.Model
+	Name string `gorm:"unique"`
+	CsCZ string
+	DeDE string
+	EnUS string
+	EsES string
+	FrFR string
+	ItIT string
+	PlPL string
+	PtPT string
+	SkSK string
+	RuRU string
+}
