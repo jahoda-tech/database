@@ -270,6 +270,7 @@ type User struct {
 	Pin        string
 	Position   string
 	Rfid       string
+	Locale     string
 	Note       string
 }
 
