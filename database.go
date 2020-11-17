@@ -68,7 +68,7 @@ type UserRecord struct {
 	Note          string
 }
 
-type DownTimeRecord struct {
+type DowntimeRecord struct {
 	gorm.Model
 	DateTimeStart time.Time `gorm:"uniqueIndex:unique_downtime_data"`
 	DateTimeEnd   sql.NullTime
