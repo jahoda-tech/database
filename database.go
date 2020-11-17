@@ -271,8 +271,7 @@ type User struct {
 	Position   string
 	Rfid       string
 	Locale     string
-
-	Note string
+	Note       string
 }
 
 type UserRole struct {
