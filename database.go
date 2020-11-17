@@ -263,8 +263,7 @@ type User struct {
 	UserTypeID int
 	UserType   UserType
 	Barcode    string
-	Email      string
-	Login      string `gorm:"uniqueIndex:username_data"`
+	Email      string `gorm:"uniqueIndex:username_data"`
 	Password   string
 	Phone      string
 	Pin        string
