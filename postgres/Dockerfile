@@ -1,5 +1,5 @@
 FROM postgres:alpine
-RUN apk add nano
-RUN cp /usr/share/zoneinfo/Europe/Prague /etc/localtime
+#RUN apk add nano
+#RUN cp /usr/share/zoneinfo/Europe/Prague /etc/localtime
 ENV POSTGRES_PASSWORD=Zps05.....
-HEALTHCHECK CMD pg_isready | grep accepting
+#HEALTHCHECK CMD pg_isready | grep accepting
