@@ -327,14 +327,14 @@ type DeviceType struct {
 
 type Device struct {
 	gorm.Model
-	Name         string `gorm:"unique"`
-	DeviceTypeID int
-	Activated    bool
-	IpAddress    string `gorm:"unique"`
-	MacAddress   string
-	Settings     string
-	TypeName     string
-	Note         string
+	Name       string `gorm:"unique"`
+	DeviceType int
+	Activated  bool
+	IpAddress  string `gorm:"unique"`
+	MacAddress string
+	Settings   string
+	TypeName   string
+	Note       string
 }
 
 type DeviceWorkplaceRecord struct {
