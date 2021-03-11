@@ -132,7 +132,7 @@ type Operation struct {
 	gorm.Model
 	Name    string `gorm:"unique"`
 	OrderID int
-	Barcode int
+	Barcode string
 	Note    string
 }
 
@@ -146,7 +146,7 @@ type Order struct {
 	Name            string `gorm:"unique"`
 	ProductID       sql.NullInt32
 	WorkplaceID     sql.NullInt32
-	Barcode         int
+	Barcode         string
 	DateTimeRequest sql.NullTime
 	Cavity          int
 	CountRequest    int
@@ -155,7 +155,7 @@ type Order struct {
 type Product struct {
 	gorm.Model
 	Name             string `gorm:"unique"`
-	Barcode          int
+	Barcode          string
 	CycleTime        int
 	DownTimeDuration time.Duration
 	Note             string
@@ -164,7 +164,7 @@ type Product struct {
 type Part struct {
 	gorm.Model
 	Name    string `gorm:"unique"`
-	Barcode int
+	Barcode string
 	Note    string
 }
 

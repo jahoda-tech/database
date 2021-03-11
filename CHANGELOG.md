@@ -23,6 +23,12 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 - changed database name
 - changed default database password
 
+## [2021.1.3.11] - 2021-03-11
+
+### Changed
+
+- barcode changed to string everywhere
+
 ## [2020.4.3.14] - 2020-12-14
 
 ### Changed
