@@ -185,7 +185,7 @@ type WorkplacePort struct {
 	Name         string `gorm:"uniqueIndex:unique_workplace_port_data"`
 	DevicePortID int    `gorm:"uniqueIndex:unique_workplace_port_data"`
 	StateID      int
-	WorkplaceID  int
+	WorkplaceID  int `gorm:"uniqueIndex:unique_workplace_port_data"`
 	Color        string
 	CounterOK    bool
 	CounterNOK   bool
