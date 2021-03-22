@@ -184,7 +184,7 @@ type WorkplacePort struct {
 	gorm.Model
 	Name         string `gorm:"uniqueIndex:unique_workplace_port_data"`
 	DevicePortID int    `gorm:"uniqueIndex:unique_workplace_port_data"`
-	StateID      int
+	StateID      sql.NullInt32
 	WorkplaceID  int `gorm:"uniqueIndex:unique_workplace_port_data"`
 	Color        string
 	CounterOK    bool

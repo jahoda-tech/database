@@ -18,7 +18,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 ### Changed
 
-- workplace port index changed
+- workplace port table changed
 
 ## [2021.1.3.18] - 2021-03-18
 
