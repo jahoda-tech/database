@@ -204,8 +204,8 @@ type WorkplaceMode struct {
 
 type WorkplaceWorkshift struct {
 	gorm.Model
-	WorkplaceID int `gorm:"uniqueIndex:unique_workplace_workshift_data"`
-	WorkshiftID int `gorm:"uniqueIndex:unique_workplace_workshift_data"`
+	WorkplaceID int
+	WorkshiftID int
 }
 
 type Workshift struct {
