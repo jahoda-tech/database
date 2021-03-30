@@ -17,7 +17,6 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 ## [2021.1.3.30] - 2021-03-30
 
 ### Added
-
 - date_time_end to StateRecord
 
 ## [2021.1.3.23] - 2021-03-23
