@@ -45,6 +45,7 @@ type State struct {
 type StateRecord struct {
 	gorm.Model
 	DateTimeStart time.Time `gorm:"uniqueIndex:unique_state_data"`
+	DateTimeEnd   sql.NullTime
 	StateID       int
 	WorkplaceID   int `gorm:"uniqueIndex:unique_state_data"`
 	Note          string
