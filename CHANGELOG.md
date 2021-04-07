@@ -23,6 +23,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 ### Added
 
 - added PageCount table
+- better index for state_records table
 
 ## [2021.1.1.6] - 2021-04-06
 
