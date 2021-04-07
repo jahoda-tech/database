@@ -17,12 +17,10 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 ## [2021.1.1.7] - 2021-04-07
 
 ### Removed
-
 - date_time_end removed again
-- three columns from workplaces table
+- three columns for state_service from workplaces table
 
 ### Added
-
 - added PageCount table
 - better index for state_records table
 
