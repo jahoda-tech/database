@@ -42,10 +42,16 @@ type State struct {
 	Note  string
 }
 
+type PageCount struct {
+	gorm.Model
+	PageName string `gorm:"unique"`
+	Count    int
+	Note     string
+}
+
 type StateRecord struct {
 	gorm.Model
 	DateTimeStart time.Time `gorm:"uniqueIndex:unique_state_data"`
-	DateTimeEnd   sql.NullTime
 	StateID       int
 	WorkplaceID   int `gorm:"uniqueIndex:unique_state_data"`
 	Note          string
