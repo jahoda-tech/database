@@ -177,14 +177,11 @@ type Part struct {
 
 type Workplace struct {
 	gorm.Model
-	Name                   string `gorm:"unique"`
-	Code                   string
-	PowerOffPortDateTime   sql.NullTime
-	ProductionPortDateTime sql.NullTime
-	ProductionPortValue    sql.NullInt32
-	WorkplaceSectionID     int
-	WorkplaceModeID        int
-	Note                   string
+	Name               string `gorm:"unique"`
+	Code               string
+	WorkplaceSectionID int
+	WorkplaceModeID    int
+	Note               string
 }
 
 type WorkplacePort struct {

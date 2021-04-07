@@ -19,6 +19,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 ### Removed
 
 - date_time_end removed again
+- three columns from workplaces table
 
 ### Added
 
