@@ -14,13 +14,23 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+## [2021.2.2.3] - 2021-05-03
+
+### Changed
+
+- updated to latest go
+- updated to latest go libraries
+- updated to latest postgres
+
 ## [2021.1.1.7] - 2021-04-07
 
 ### Removed
+
 - date_time_end removed again
 - three columns for state_service from workplaces table
 
 ### Added
+
 - added PageCount table
 - better index for state_records table
 
