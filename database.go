@@ -396,3 +396,10 @@ type Locale struct {
 	SkSK string
 	RuRU string
 }
+
+type WebUserRecord struct {
+	gorm.Model
+	UserEmail string
+	WebPage   string
+	DateTime  time.Time
+}
