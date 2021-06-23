@@ -25,7 +25,6 @@ type AlarmRecord struct {
 	DateTimeProcessed sql.NullTime
 	AlarmID           int `gorm:"uniqueIndex:unique_alarm_data"`
 	WorkplaceID       int `gorm:"uniqueIndex:unique_alarm_data"`
-	UserID            sql.NullInt32
 }
 
 type SystemRecord struct {
@@ -74,7 +73,6 @@ type DowntimeRecord struct {
 	DateTimeEnd   sql.NullTime
 	WorkplaceID   int `gorm:"uniqueIndex:unique_downtime_data"`
 	DowntimeID    int `gorm:"uniqueIndex:unique_downtime_data"`
-	UserID        sql.NullInt32
 	Note          string
 }
 
