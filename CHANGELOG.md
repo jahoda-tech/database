@@ -18,7 +18,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 ### Changed
 
-- added again row for AlarmRecord but removed for DowntimeRecord as sqlnull.Int32
+- added again row for AlarmRecord and again for DowntimeRecord as sqlnull.Int32
 
 ## [2021.2.3.15] - 2021-06-15
 
