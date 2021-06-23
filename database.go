@@ -128,6 +128,7 @@ type OrderRecord struct {
 	OrderID         int `gorm:"uniqueIndex:unique_order_data"`
 	OperationID     int `gorm:"uniqueIndex:unique_order_data"`
 	WorkplaceID     int `gorm:"uniqueIndex:unique_order_data"`
+	UserId          sql.NullInt32
 	WorkplaceModeID int
 	WorkshiftID     int
 	AverageCycle    float32
