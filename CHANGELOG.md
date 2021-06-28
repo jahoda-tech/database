@@ -14,6 +14,12 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+## [2021.2.3.28] - 2021-06-28
+
+### Changed
+
+- downtimeRecord.OrderId changed to downtimeRecord.OrderRecordId
+
 ## [2021.2.3.23] - 2021-06-23
 
 ### Changed

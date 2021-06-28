@@ -74,7 +74,7 @@ type DowntimeRecord struct {
 	DateTimeEnd   sql.NullTime
 	WorkplaceID   int `gorm:"uniqueIndex:unique_downtime_data"`
 	DowntimeID    int `gorm:"uniqueIndex:unique_downtime_data"`
-	OrderID       sql.NullInt32
+	OrderRecordID sql.NullInt32
 	UserID        sql.NullInt32
 	Note          string
 }
