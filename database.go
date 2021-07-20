@@ -23,8 +23,8 @@ type AlarmRecord struct {
 	DateTimeStart     time.Time `gorm:"uniqueIndex:unique_alarm_data"`
 	DateTimeEnd       sql.NullTime
 	DateTimeProcessed sql.NullTime
-	AlarmID           int `gorm:"uniqueIndex:unique_alarm_data"`
-	WorkplaceID       int `gorm:"uniqueIndex:unique_alarm_data"`
+	AlarmID           int           `gorm:"uniqueIndex:unique_alarm_data"`
+	WorkplaceID       sql.NullInt32 `gorm:"uniqueIndex:unique_alarm_data"`
 	UserID            sql.NullInt32
 }
 
