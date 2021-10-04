@@ -407,3 +407,15 @@ type WebUserRecord struct {
 	WebPage   string
 	DateTime  time.Time
 }
+
+type WorkplaceCacheRecord struct {
+	gorm.Model
+	WorkplaceID        int       `gorm:"uniqueIndex:unique_workplace_cache"`
+	DateTime           time.Time `gorm:"uniqueIndex:unique_workplace_cache"`
+	ProductionDuration int
+	DowntimeDuration   int
+	PowerOffDuration   int
+	Consumption        float32
+	CountOk            int
+	CountNok           int
+}

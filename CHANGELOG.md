@@ -14,6 +14,14 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+## [2021.4.1.4] - 2021-10-04
+
+### Added
+
+- updated to latest modules
+- updated to latest postgres docker image
+- new table for workplace cached data
+
 ## [2021.3.1.20] - 2021-07-20
 
 ### Changed
