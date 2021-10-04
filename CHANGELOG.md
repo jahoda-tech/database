@@ -20,7 +20,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 - updated to latest modules
 - updated to latest postgres docker image
-- new table for workplace cached data
+- removed table for workplace cached data
 
 ## [2021.3.1.20] - 2021-07-20
 
