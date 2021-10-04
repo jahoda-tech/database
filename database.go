@@ -418,4 +418,5 @@ type WorkplaceCacheRecord struct {
 	Consumption        float32
 	CountOk            int
 	CountNok           int
+	CountFault         int
 }
