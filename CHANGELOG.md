@@ -19,6 +19,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 ### Changed
 
 - workshift start and end changed to int
+- added tags
 
 ## [2021.4.1.4] - 2021-10-04
 
