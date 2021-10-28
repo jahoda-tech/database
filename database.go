@@ -219,8 +219,8 @@ type WorkplaceWorkshift struct {
 type Workshift struct {
 	gorm.Model
 	Name           string `gorm:"unique"`
-	WorkshiftStart time.Time
-	WorkshiftEnd   time.Time
+	WorkshiftStart int
+	WorkshiftEnd   int
 	Note           string
 }
 
