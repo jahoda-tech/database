@@ -407,3 +407,16 @@ type WebUserRecord struct {
 	WebPage   string
 	DateTime  time.Time
 }
+
+type CacheRecord struct {
+	gorm.Model
+	WorkplaceID int
+	DateTime    time.Time
+	Production  time.Duration
+	Downtime    time.Duration
+	PowerOff    time.Duration
+	CountOk     int
+	CountNok    int
+	CountFail   int
+	Consumption float32
+}
