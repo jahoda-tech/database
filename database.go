@@ -410,8 +410,8 @@ type WebUserRecord struct {
 
 type CacheRecord struct {
 	gorm.Model
-	WorkplaceID int
-	DateTime    time.Time
+	WorkplaceID int       `gorm:"uniqueIndex:unique_cache_data"`
+	DateTime    time.Time `gorm:"uniqueIndex:unique_cache_data"`
 	Production  time.Duration
 	Downtime    time.Duration
 	PowerOff    time.Duration
