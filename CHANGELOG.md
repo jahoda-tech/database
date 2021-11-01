@@ -19,6 +19,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 ### Added
 
 - cacheRecord table
+- added unique index to cacheRecords
 - removed tags
 
 ## [2021.4.1.28] - 2021-10-28
