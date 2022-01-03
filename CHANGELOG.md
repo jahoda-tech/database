@@ -16,9 +16,11 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 ## [2022.1.1.3] - 2022-01-03
 
+
 ### Changed
 
 - Alarm.WorkplaceID changed to sql.NullInt32
+- Package.OrderID changed to Package.ProductID
 
 
 ## [2021.4.3.6] - 2021-12-06

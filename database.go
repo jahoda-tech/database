@@ -300,7 +300,7 @@ type FaultType struct {
 type Package struct {
 	gorm.Model
 	Name          string `gorm:"unique"`
-	OrderID       int
+	ProductID     int
 	PackageTypeID int
 	Barcode       string
 	Note          string
