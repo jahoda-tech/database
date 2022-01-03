@@ -9,7 +9,7 @@ import (
 type Alarm struct {
 	gorm.Model
 	Name          string `gorm:"unique"`
-	WorkplaceID   int
+	WorkplaceID   sql.NullInt32
 	SqlCommand    string
 	MessageHeader string
 	MessageText   string
