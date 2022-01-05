@@ -2,7 +2,6 @@ package database
 
 import (
 	"database/sql"
-	"database/sql/driver"
 	"gorm.io/gorm"
 	"time"
 )
@@ -37,28 +36,11 @@ type SystemRecord struct {
 	EstimatedDiscFreeSizeInDays float32
 }
 
-type state string
-
-const (
-	production state = "production"
-	downtime   state = "downtime"
-	poweroff   state = "poweroff"
-)
-
-func (p *state) Scan(value interface{}) error {
-	*p = state(value.([]byte))
-	return nil
-}
-
-func (p state) Value() (driver.Value, error) {
-	return string(p), nil
-}
-
 type State struct {
 	gorm.Model
 	Name  string `gorm:"unique"`
 	Color string
-	State string `sql:"type:state"`
+	State string
 	Note  string
 }
 
