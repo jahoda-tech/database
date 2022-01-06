@@ -14,6 +14,13 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+## [2022.1.1.6] - 2022-01-06
+
+
+### Changed
+
+- CacheRecord changed to SummaryRecord
+
 ## [2022.1.1.3] - 2022-01-03
 
 
