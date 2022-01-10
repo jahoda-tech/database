@@ -421,3 +421,10 @@ type SummaryRecord struct {
 	CountFail   int
 	Consumption float32
 }
+
+type Report struct {
+	gorm.Model
+	Name string `gorm:"unique"`
+	Url  string
+	Note string
+}
