@@ -428,3 +428,9 @@ type Report struct {
 	Url  string
 	Note string
 }
+
+type WorkplaceSectionRecord struct {
+	gorm.Model
+	WorkplaceSectionID int
+	WorkplaceID        int
+}
