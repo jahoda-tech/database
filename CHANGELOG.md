@@ -15,6 +15,14 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Security``` in case of vulnerabilities.
 
 
+## [2022.1.2.28] - 2022-02-28
+
+
+### Changed
+
+- Postgres updated to 14.2
+
+
 ## [2022.1.1.24] - 2022-01-24
 
 
