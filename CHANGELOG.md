@@ -19,7 +19,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 ### Added
 
-- UserWebSettings table
+- WebUserSettings table
 
 
 ## [2022.1.2.28] - 2022-02-28

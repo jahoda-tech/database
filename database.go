@@ -435,7 +435,7 @@ type WorkplaceSectionRecord struct {
 	WorkplaceID        int
 }
 
-type UserWebSettings struct {
+type WebUserSettings struct {
 	gorm.Model
 	Email string
 	Type  string
