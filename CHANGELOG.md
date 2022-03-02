@@ -14,6 +14,13 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+## [2022.1.3.2] - 2022-03-02
+
+
+### Added
+
+- UserWebSettings table
+
 
 ## [2022.1.2.28] - 2022-02-28
 
