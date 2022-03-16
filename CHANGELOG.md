@@ -14,6 +14,14 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+
+## [2022.1.3.16] - 2022-03-16
+
+
+### Removed
+
+- WorkplaceSectionId in Workplace table
+
 ## [2022.1.3.2] - 2022-03-02
 
 
