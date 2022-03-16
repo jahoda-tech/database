@@ -17,7 +17,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 ## [2022.1.3.16] - 2022-03-16
 
-
+  
 ### Removed
 
 - WorkplaceSectionId in Workplace table
