@@ -23,6 +23,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 ### Changed
 - Updated to go 1.18
+- Updated readme.md
 
 ## [2022.1.3.2] - 2022-03-02
 

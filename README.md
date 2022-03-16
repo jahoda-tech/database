@@ -17,7 +17,7 @@
 
 ## Description
 Go module that holds database structure, used in every system service.
-PostgreSQL 13 is used as a database service.
+PostgreSQL 14 is used as a database service.
 
 ## Installation Information
 Install under docker runtime using [this dockerfile image](https://github.com/petrjahoda/system/tree/master/latest) with this command: ```docker-compose up -d```
@@ -25,14 +25,13 @@ Install under docker runtime using [this dockerfile image](https://github.com/pe
 ## Implementation Information
 Check the software running with this command: ```docker stats```. <br/>
 Database has to be running.
-Database is running on port 5432, user postgres, password Zps05.....
 
 ### After installation fine tuning
 - use https://pgtune.leopard.in.ua/#/
-    - default: DB version 13
+    - default: DB version 14
     - default: OS Type Linux
     - default: DB Type Mixed type of applications
-    - default: number of connections: 10 per 1 workplace (for example: 100 per 10 workplaces)
+    - default: number of connections: 50 default + 10 per 1 workplace (for example: 150 per 10 workplaces)
 - update configuration using ALTER SYSTEM tab
 - restart database container        
         
@@ -41,4 +40,4 @@ Use software only as a [part of a system](https://github.com/petrjahoda/system) 
 Do not run under linux, windows or mac on its own.
 
 
-© 2020 Petr Jahoda
+© 2022 Petr Jahoda
