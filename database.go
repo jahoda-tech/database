@@ -185,6 +185,7 @@ type Workplace struct {
 	Name            string `gorm:"unique"`
 	Code            string
 	WorkplaceModeID int
+	Voltage         int
 	Note            string
 }
 
