@@ -14,6 +14,12 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+## [2022.2.1.28] - 2022-04-28
+
+### Removed
+
+- creating database from postgres
+
 ## [2022.1.3.17] - 2022-03-17
 
 ### Added
