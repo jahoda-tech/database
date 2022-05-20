@@ -18,7 +18,6 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 ### Removed
 
-
 - bookmarks table
 
 ## [2022.2.1.28] - 2022-04-28
