@@ -429,6 +429,13 @@ type Report struct {
 	Note string
 }
 
+type Bookmark struct {
+	gorm.Model
+	Name string `gorm:"unique"`
+	Url  string
+	Note string
+}
+
 type WorkplaceSectionRecord struct {
 	gorm.Model
 	WorkplaceSectionID int
