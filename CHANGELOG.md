@@ -16,7 +16,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 ## [2022.2.3.2] - 2022-06-02
 
-### Added
+### Removed
 
 - ProductID for Part table
 

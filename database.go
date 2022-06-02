@@ -175,10 +175,9 @@ type Product struct {
 
 type Part struct {
 	gorm.Model
-	Name      string `gorm:"unique"`
-	ProductID sql.NullInt32
-	Barcode   string
-	Note      string
+	Name    string `gorm:"unique"`
+	Barcode string
+	Note    string
 }
 
 type Workplace struct {
