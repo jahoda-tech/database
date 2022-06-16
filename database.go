@@ -372,6 +372,13 @@ type DevicePortAnalogRecord struct {
 	Data         float32
 }
 
+type DevicePortSpecialRecord struct {
+	ID           int       `gorm:"primaryKey"`
+	DateTime     time.Time `gorm:"uniqueIndex:unique_special_data"`
+	DevicePortID int       `gorm:"uniqueIndex:unique_special_data"`
+	Data         float32
+}
+
 type DevicePortDigitalRecord struct {
 	ID           int       `gorm:"primaryKey"`
 	DateTime     time.Time `gorm:"uniqueIndex:unique_digital_data"`
