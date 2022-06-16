@@ -142,8 +142,8 @@ type OrderRecord struct {
 
 type Operation struct {
 	gorm.Model
-	Name    string `gorm:"unique"`
-	OrderID int
+	Name    string `gorm:"uniqueIndex:unique_operation_data"`
+	OrderID int    `gorm:"uniqueIndex:unique_operation_data"`
 	Barcode string
 	Note    string
 }
@@ -447,4 +447,40 @@ type WebUserSettings struct {
 	Email string
 	Type  string
 	Data  string
+}
+
+type MaintenanceType struct {
+	gorm.Model
+	Name                      string `gorm:"unique"`
+	DayOfWeek                 sql.NullInt32
+	DayOfMonth                sql.NullInt32
+	TotalTimeFromLastRecord   sql.NullInt32
+	PowerOnTimeFromLastRecord sql.NullInt32
+	Note                      string
+}
+
+type Maintenance struct {
+	gorm.Model
+	Name              string `gorm:"unique"`
+	MaintenanceTypeID int
+	Note              string
+}
+
+type MaintenanceWorkplaceRecord struct {
+	gorm.Model
+	MaintenanceID int
+	WorkplaceID   int
+}
+
+type MaintenanceRecord struct {
+	gorm.Model
+	MaintenanceID   int
+	DateTime        time.Time
+	UserID          int
+	WorkplaceID     int
+	UserNote        string
+	MaintenanceNote string
+	ControlUserID   sql.NullInt32
+	ControlDateTime sql.NullTime
+	Note            string
 }
