@@ -142,8 +142,7 @@ type OrderRecord struct {
 
 type Operation struct {
 	gorm.Model
-	Name    string `gorm:"uniqueIndex:unique_operation_data"`
-	OrderID int    `gorm:"uniqueIndex:unique_operation_data"`
+	Name    string `gorm:"unique"`
 	Barcode string
 	Note    string
 }
