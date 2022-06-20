@@ -14,6 +14,12 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+## [2022.2.3.20] - 2022-06-20
+
+### Added
+
+- OperationOrderRecord
+- Note column for every possible table
 
 ## [2022.2.3.16] - 2022-06-16
 
@@ -35,7 +41,6 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 ### Removed
 
-
 - bookmarks table
 
 ## [2022.2.1.28] - 2022-04-28
@@ -50,7 +55,6 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 - Voltage to Workplace table
 
-
 ## [2022.1.3.16] - 2022-03-16
 
 ### Removed
@@ -58,27 +62,23 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 - WorkplaceSectionId in Workplace table
 
 ### Changed
+
 - Updated to go 1.18
 - Updated readme.md
 
 ## [2022.1.3.2] - 2022-03-02
 
-
 ### Added
 
 - WebUserSettings table
 
-
 ## [2022.1.2.28] - 2022-02-28
-
 
 ### Changed
 
 - Postgres updated to 14.2
 
-
 ## [2022.1.1.24] - 2022-01-24
-
 
 ### Added
 
@@ -86,13 +86,11 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 ## [2022.1.1.10] - 2022-01-10
 
-
 ### Added
 
 - Record structure
 
 ## [2022.1.1.6] - 2022-01-06
-
 
 ### Changed
 
@@ -100,12 +98,10 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 ## [2022.1.1.3] - 2022-01-03
 
-
 ### Changed
 
 - Alarm.WorkplaceID changed to sql.NullInt32
 - Package.OrderID changed to Package.ProductID
-
 
 ## [2021.4.3.6] - 2021-12-06
 

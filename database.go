@@ -16,6 +16,7 @@ type Alarm struct {
 	Recipients    string
 	Url           string
 	Pdf           string
+	Note          string
 }
 
 type AlarmRecord struct {
@@ -26,6 +27,7 @@ type AlarmRecord struct {
 	AlarmID           int           `gorm:"uniqueIndex:unique_alarm_data"`
 	WorkplaceID       sql.NullInt32 `gorm:"uniqueIndex:unique_alarm_data"`
 	UserID            sql.NullInt32
+	Note              string
 }
 
 type SystemRecord struct {
@@ -34,6 +36,7 @@ type SystemRecord struct {
 	DatabaseGrowthInMegaBytes   float32
 	DiscFreeSizeInMegaBytes     float32
 	EstimatedDiscFreeSizeInDays float32
+	Note                        string
 }
 
 type State struct {
@@ -147,6 +150,13 @@ type Operation struct {
 	Note    string
 }
 
+type OperationOrderRecord struct {
+	gorm.Model
+	OperationID string
+	OrderID     string
+	Note        string
+}
+
 type WorkplaceSection struct {
 	gorm.Model
 	Name string `gorm:"unique"`
@@ -214,6 +224,7 @@ type WorkplaceWorkshift struct {
 	gorm.Model
 	WorkplaceID int
 	WorkshiftID int
+	Note        string
 }
 
 type Workshift struct {
@@ -349,6 +360,7 @@ type DeviceWorkplaceRecord struct {
 	gorm.Model
 	DeviceID    int `gorm:"uniqueIndex:device_workplace_data"`
 	WorkplaceID int `gorm:"uniqueIndex:device_workplace_data"`
+	Note        string
 }
 
 type DevicePort struct {
@@ -413,6 +425,7 @@ type WebUserRecord struct {
 	UserEmail string
 	WebPage   string
 	DateTime  time.Time
+	Note      string
 }
 
 type SummaryRecord struct {
@@ -426,6 +439,7 @@ type SummaryRecord struct {
 	CountNok    int
 	CountFail   int
 	Consumption float32
+	Note        string
 }
 
 type Report struct {
@@ -446,6 +460,7 @@ type WorkplaceSectionRecord struct {
 	gorm.Model
 	WorkplaceSectionID int
 	WorkplaceID        int
+	Note               string
 }
 
 type WebUserSettings struct {
@@ -453,6 +468,7 @@ type WebUserSettings struct {
 	Email string
 	Type  string
 	Data  string
+	Note  string
 }
 
 type MaintenanceType struct {
@@ -476,6 +492,7 @@ type MaintenanceWorkplaceRecord struct {
 	gorm.Model
 	MaintenanceID int
 	WorkplaceID   int
+	Note          string
 }
 
 type MaintenanceRecord struct {
