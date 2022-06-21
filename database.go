@@ -145,16 +145,10 @@ type OrderRecord struct {
 
 type Operation struct {
 	gorm.Model
-	Name    string `gorm:"unique"`
-	Barcode string
+	Name    string
+	OrderID int
+	Barcode string `gorm:"unique"`
 	Note    string
-}
-
-type OperationOrderRecord struct {
-	gorm.Model
-	OperationID string
-	OrderID     string
-	Note        string
 }
 
 type WorkplaceSection struct {
@@ -164,10 +158,10 @@ type WorkplaceSection struct {
 }
 type Order struct {
 	gorm.Model
-	Name            string `gorm:"unique"`
+	Name            string
 	ProductID       sql.NullInt32
 	WorkplaceID     sql.NullInt32
-	Barcode         string
+	Barcode         string `gorm:"unique"`
 	DateTimeRequest sql.NullTime
 	Cavity          int
 	CountRequest    int

@@ -14,6 +14,19 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+
+## [2022.2.3.21] - 2022-06-21
+
+### Removed
+
+- OperationOrderRecord
+
+### Added
+- OrderId for Operation
+
+### Changed
+- order and operation has unique barcode, not name
+
 ## [2022.2.3.20] - 2022-06-20
 
 ### Added
