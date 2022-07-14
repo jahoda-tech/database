@@ -47,19 +47,19 @@ type State struct {
 	Note  string
 }
 
-type PageCount struct {
-	gorm.Model
-	PageName string `gorm:"unique"`
-	Count    int
-	Note     string
-}
-
 type StateRecord struct {
 	gorm.Model
 	DateTimeStart time.Time `gorm:"uniqueIndex:unique_state_data"`
 	StateID       int       `gorm:"uniqueIndex:unique_state_data"`
 	WorkplaceID   int       `gorm:"uniqueIndex:unique_state_data"`
 	Note          string
+}
+
+type PageCount struct {
+	gorm.Model
+	PageName string `gorm:"unique"`
+	Count    int
+	Note     string
 }
 
 type UserRecord struct {
@@ -156,6 +156,7 @@ type WorkplaceSection struct {
 	Name string `gorm:"unique"`
 	Note string
 }
+
 type Order struct {
 	gorm.Model
 	Name            string
@@ -167,6 +168,7 @@ type Order struct {
 	CountRequest    int
 	Note            string
 }
+
 type Product struct {
 	gorm.Model
 	Name             string `gorm:"unique"`
@@ -426,6 +428,21 @@ type SummaryRecord struct {
 	gorm.Model
 	WorkplaceID int       `gorm:"uniqueIndex:unique_summary_data"`
 	DateTime    time.Time `gorm:"uniqueIndex:unique_summary_data"`
+	Production  time.Duration
+	Downtime    time.Duration
+	PowerOff    time.Duration
+	CountOk     int
+	CountNok    int
+	CountFail   int
+	Consumption float32
+	Note        string
+}
+
+type ShiftSummaryRecord struct {
+	gorm.Model
+	WorkplaceID int       `gorm:"uniqueIndex:unique_summary_data"`
+	DateTime    time.Time `gorm:"uniqueIndex:unique_summary_data"`
+	ShiftID     int       `gorm:"uniqueIndex:unique_summary_data"`
 	Production  time.Duration
 	Downtime    time.Duration
 	PowerOff    time.Duration

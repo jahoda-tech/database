@@ -14,6 +14,11 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+## [2022.3.1.14] - 2022-07-14
+
+### Added
+
+- ShiftSummaryRecord table
 
 ## [2022.2.3.21] - 2022-06-21
 
