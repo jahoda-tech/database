@@ -191,6 +191,7 @@ type Workplace struct {
 	Code            string
 	WorkplaceModeID int
 	Voltage         int
+	Unit            string
 	Note            string
 }
 
