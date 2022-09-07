@@ -468,6 +468,13 @@ type Bookmark struct {
 	Note string
 }
 
+type Layout struct {
+	gorm.Model
+	Name  string `gorm:"unique"`
+	Image []byte
+	Note  string
+}
+
 type WorkplaceSectionRecord struct {
 	gorm.Model
 	WorkplaceSectionID int
