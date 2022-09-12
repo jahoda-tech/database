@@ -470,9 +470,10 @@ type Bookmark struct {
 
 type Layout struct {
 	gorm.Model
-	Name  string `gorm:"unique"`
-	Image []byte
-	Note  string
+	Name     string `gorm:"unique"`
+	Image    []byte
+	ImageUrl string
+	Note     string
 }
 
 type WorkplaceSectionRecord struct {
