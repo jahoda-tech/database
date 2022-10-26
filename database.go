@@ -427,31 +427,35 @@ type WebUserRecord struct {
 
 type SummaryRecord struct {
 	gorm.Model
-	WorkplaceID int       `gorm:"uniqueIndex:unique_summary_data"`
-	DateTime    time.Time `gorm:"uniqueIndex:unique_summary_data"`
-	Production  time.Duration
-	Downtime    time.Duration
-	PowerOff    time.Duration
-	CountOk     int
-	CountNok    int
-	CountFail   int
-	Consumption float32
-	Note        string
+	WorkplaceID           int       `gorm:"uniqueIndex:unique_summary_data"`
+	DateTime              time.Time `gorm:"uniqueIndex:unique_summary_data"`
+	Production            time.Duration
+	Downtime              time.Duration
+	PowerOff              time.Duration
+	CountOk               int
+	CountNok              int
+	CountFail             int
+	Consumption           float32
+	ProductionConsumption float32
+	DowntimeConsumption   float32
+	Note                  string
 }
 
 type ShiftSummaryRecord struct {
 	gorm.Model
-	WorkplaceID int       `gorm:"uniqueIndex:unique_summary_data"`
-	DateTime    time.Time `gorm:"uniqueIndex:unique_summary_data"`
-	ShiftID     int       `gorm:"uniqueIndex:unique_summary_data"`
-	Production  time.Duration
-	Downtime    time.Duration
-	PowerOff    time.Duration
-	CountOk     int
-	CountNok    int
-	CountFail   int
-	Consumption float32
-	Note        string
+	WorkplaceID           int       `gorm:"uniqueIndex:unique_summary_data"`
+	DateTime              time.Time `gorm:"uniqueIndex:unique_summary_data"`
+	ShiftID               int       `gorm:"uniqueIndex:unique_summary_data"`
+	Production            time.Duration
+	Downtime              time.Duration
+	PowerOff              time.Duration
+	CountOk               int
+	CountNok              int
+	CountFail             int
+	Consumption           float32
+	ProductionConsumption float32
+	DowntimeConsumption   float32
+	Note                  string
 }
 
 type Report struct {
