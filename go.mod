@@ -1,6 +1,6 @@
 module github.com/petrjahoda/database
 
-go 1.18
+go 1.19
 
 require gorm.io/gorm v1.24.0
 
