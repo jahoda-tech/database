@@ -80,6 +80,7 @@ type DowntimeRecord struct {
 	DowntimeID    int `gorm:"uniqueIndex:unique_downtime_data"`
 	OrderRecordID sql.NullInt32
 	UserID        sql.NullInt32
+	Consumption   float32
 	Note          string
 }
 
@@ -140,6 +141,7 @@ type OrderRecord struct {
 	Cavity          int
 	CountOk         int
 	CountNok        int
+	Consumption     float32
 	Note            string
 }
 
