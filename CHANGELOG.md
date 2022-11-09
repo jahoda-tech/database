@@ -19,6 +19,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 ### Added
 
 - Checklist and ChecklistRecord tables
+- ImageUrl to checklist table
 
 
 ## [2022.4.1.31] - 2022-10-31
