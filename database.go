@@ -545,6 +545,7 @@ type Checklist struct {
 	Repeat             sql.NullInt32
 	WorkplaceID        sql.NullInt32
 	Image              []byte
+	ImageUrl           string
 	WorkplaceSectionID sql.NullInt32
 	UserTypeID         sql.NullInt32
 	ProductID          sql.NullInt32
