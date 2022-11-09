@@ -533,3 +533,38 @@ type MaintenanceRecord struct {
 	ControlDateTime sql.NullTime
 	Note            string
 }
+
+type Checklist struct {
+	gorm.Model
+	Name               string `gorm:"unique"`
+	Type               string
+	Possibilities      string
+	Text               string
+	Start              string
+	StartInterval      int
+	Repeat             sql.NullInt32
+	WorkplaceID        sql.NullInt32
+	Image              []byte
+	WorkplaceSectionID sql.NullInt32
+	UserTypeID         sql.NullInt32
+	ProductID          sql.NullInt32
+	OrderID            sql.NullInt32
+	OperationID        sql.NullInt32
+	Note               string
+}
+
+type ChecklistRecord struct {
+	gorm.Model
+	DateTime       time.Time `gorm:"uniqueIndex:unique_checklist_data"`
+	ChecklistID    int       `gorm:"uniqueIndex:unique_checklist_data"`
+	WorkplaceID    int       `gorm:"uniqueIndex:unique_checklist_data"`
+	UserId         int       `gorm:"uniqueIndex:unique_checklist_data"`
+	OrderID        int
+	OperationID    sql.NullInt32
+	ProductID      int
+	ResultNumber   sql.NullFloat64
+	ResultText     sql.NullString
+	ResultOption   sql.NullString
+	ResultDateTime sql.NullTime
+	Note           string
+}
