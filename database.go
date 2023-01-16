@@ -193,6 +193,7 @@ type Workplace struct {
 	Code            string
 	WorkplaceModeID int
 	Voltage         int
+	PowerFactor     float32
 	Unit            string
 	Note            string
 }

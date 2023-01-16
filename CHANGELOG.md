@@ -14,6 +14,13 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+
+## [20223.1.1.16] - 2023-01-16
+
+### Added
+
+- PowerFactor to Workplace table
+
 ## [2022.4.2.9] - 2022-11-09
 
 ### Added
