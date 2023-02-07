@@ -14,14 +14,14 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
-## [20223.1.2.7] - 2023-02-07
+## [2023.1.2.7] - 2023-02-07
 
 ### Added
 
 - updated to latest go and libraries
 
 
-## [20223.1.1.16] - 2023-01-16
+## [2023.1.1.16] - 2023-01-16
 
 ### Added
 
