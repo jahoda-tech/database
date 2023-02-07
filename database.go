@@ -177,6 +177,7 @@ type Product struct {
 	Barcode          string
 	CycleTime        int
 	DownTimeDuration time.Duration
+	Unit             sql.NullString
 	Note             string
 }
 
@@ -569,4 +570,118 @@ type ChecklistRecord struct {
 	ResultOption   sql.NullString
 	ResultDateTime sql.NullTime
 	Note           string
+}
+
+type Stock struct {
+	gorm.Model
+	Name string
+	Code string
+	Note string
+}
+
+type StockStateRecord struct {
+	gorm.Model
+	StockID         int
+	ProductID       int
+	SerialNumberID  sql.NullInt32
+	BatchNumberID   sql.NullInt32
+	StockLocationID sql.NullInt32
+	CompanyID       sql.NullInt32
+	Count           sql.NullInt32
+	Volume          sql.NullFloat64
+	Note            string
+}
+
+type BatchNumber struct {
+	gorm.Model
+	ProductID string
+	Number    string
+	Note      string
+}
+
+type SerialNumber struct {
+	gorm.Model
+	ProductID string
+	Number    string
+	Note      string
+}
+
+type Company struct {
+	gorm.Model
+	Name          string
+	Code          string
+	Country       string
+	Address       string
+	CompanyTypeID string
+	UserID        sql.NullInt32
+	Note          string
+}
+
+func (Company) TableName() string {
+	return "Companies"
+}
+
+type CompanyType struct {
+	gorm.Model
+	Type string
+	Note string
+}
+
+type StockLocation struct {
+	gorm.Model
+	Name    string
+	StockID string
+	Note    string
+}
+
+type StockOrderRecord struct {
+	gorm.Model
+	DateTime        sql.NullTime
+	StockID         sql.NullInt32
+	CompanyID       sql.NullInt32
+	RecordTypeID    int
+	ProductID       int
+	Count           sql.NullInt32
+	Volume          sql.NullFloat64
+	StockLocationID sql.NullInt32
+	SerialNumberID  sql.NullInt32
+	BatchNumberID   sql.NullInt32
+	Completed       bool
+	Note            string
+}
+
+type StockRecord struct {
+	gorm.Model
+	DateTime     time.Time
+	StockID      int
+	UserID       int
+	CompanyID    sql.NullInt32
+	RecordTypeID int
+	StockOrderID sql.NullInt32
+	Note         string
+}
+
+type StockRecordItem struct {
+	gorm.Model
+	ProductID       int
+	BatchNumberID   sql.NullInt32
+	SerialNumberID  sql.NullInt32
+	StockLocationID sql.NullInt32
+	Count           sql.NullInt32
+	Volume          sql.NullFloat64
+	Note            string
+}
+
+type RecordType struct {
+	//TODO:receive, putaway, crossdocking, inventory
+	gorm.Model
+	Name string
+	Note sql.NullString
+}
+
+type ProductPackageRecord struct {
+	gorm.Model
+	PackageBarcode string
+	SerialNumberID sql.NullInt32
+	BatchNumberID  sql.NullInt32
 }

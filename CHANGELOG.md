@@ -19,6 +19,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 ### Added
 
 - updated to latest go and libraries
+- database structure for xStock warehouse management system
 
 
 ## [2023.1.1.16] - 2023-01-16
