@@ -613,7 +613,7 @@ type Company struct {
 	Code          string
 	Country       string
 	Address       string
-	CompanyTypeID string
+	CompanyTypeID int
 	UserID        sql.NullInt32
 	Note          string
 }

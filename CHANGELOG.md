@@ -20,6 +20,8 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 ### Changed
 
 - DateTimeStart and DateTimeEnd for StockOrderRecord
+- CompanyTypeId changed to int from string
+
 
 ## [2023.1.2.7] - 2023-02-07
 
