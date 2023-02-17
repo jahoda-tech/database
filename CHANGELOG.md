@@ -14,6 +14,13 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+
+## [2023.1.2.17] - 2023-02-17
+
+### Changed
+
+- DateTimeStart and DateTimeEnd for StockOrderRecord
+
 ## [2023.1.2.7] - 2023-02-07
 
 ### Added

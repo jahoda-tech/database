@@ -594,9 +594,10 @@ type StockStateRecord struct {
 
 type BatchNumber struct {
 	gorm.Model
-	ProductID string
-	Number    string
-	Note      string
+	ProductID          string
+	Number             string
+	ExpirationDuration time.Duration
+	Note               string
 }
 
 type SerialNumber struct {
@@ -629,14 +630,17 @@ type CompanyType struct {
 
 type StockLocation struct {
 	gorm.Model
-	Name    string
-	StockID string
-	Note    string
+	Name      string
+	StockID   string
+	MaxCount  sql.NullInt32
+	MaxVolume sql.NullFloat64
+	Note      string
 }
 
 type StockOrderRecord struct {
 	gorm.Model
-	DateTime        sql.NullTime
+	DateTimeStart   time.Time
+	DateTimeEnd     sql.NullTime
 	StockID         sql.NullInt32
 	CompanyID       sql.NullInt32
 	RecordTypeID    int
