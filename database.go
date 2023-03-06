@@ -594,7 +594,7 @@ type StockStateRecord struct {
 
 type BatchNumber struct {
 	gorm.Model
-	ProductID          string `gorm:"uniqueIndex:unique_batch_number"`
+	ProductID          int    `gorm:"uniqueIndex:unique_batch_number"`
 	Number             string `gorm:"uniqueIndex:unique_batch_number"`
 	ExpirationDuration time.Duration
 	Note               string
@@ -602,7 +602,7 @@ type BatchNumber struct {
 
 type SerialNumber struct {
 	gorm.Model
-	ProductID string `gorm:"uniqueIndex:unique_serial_number"`
+	ProductID int    `gorm:"uniqueIndex:unique_serial_number"`
 	Number    string `gorm:"uniqueIndex:unique_serial_number"`
 	Note      string
 }
