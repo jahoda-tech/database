@@ -640,16 +640,16 @@ type StockLocation struct {
 type StockOrderRecord struct {
 	gorm.Model
 	DateTimeStart   time.Time
+	RecordTypeID    int
+	ProductID       int
 	DateTimeEnd     sql.NullTime
 	StockID         sql.NullInt32
 	CompanyID       sql.NullInt32
-	RecordTypeID    int
-	ProductID       int
-	Count           sql.NullInt32
-	Volume          sql.NullFloat64
 	StockLocationID sql.NullInt32
 	SerialNumberID  sql.NullInt32
 	BatchNumberID   sql.NullInt32
+	Count           sql.NullInt32
+	Volume          sql.NullFloat64
 	Completed       bool
 	Note            string
 }
