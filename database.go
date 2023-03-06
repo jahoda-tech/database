@@ -619,7 +619,7 @@ type Company struct {
 }
 
 func (Company) TableName() string {
-	return "Companies"
+	return "companies"
 }
 
 type CompanyType struct {
