@@ -631,7 +631,7 @@ type CompanyType struct {
 type StockLocation struct {
 	gorm.Model
 	Name      string `gorm:"uniqueIndex:unique_stock_location"`
-	StockID   string `gorm:"uniqueIndex:unique_stock_location"`
+	StockID   int    `gorm:"uniqueIndex:unique_stock_location"`
 	MaxCount  sql.NullInt32
 	MaxVolume sql.NullFloat64
 	Note      string
