@@ -574,8 +574,8 @@ type ChecklistRecord struct {
 
 type Stock struct {
 	gorm.Model
-	Name string
-	Code string
+	Name string `gorm:"uniqueIndex:unique_stock"`
+	Code string `gorm:"uniqueIndex:unique_stock"`
 	Note string
 }
 
@@ -594,24 +594,24 @@ type StockStateRecord struct {
 
 type BatchNumber struct {
 	gorm.Model
-	ProductID          string
-	Number             string
+	ProductID          string `gorm:"uniqueIndex:unique_batch_number"`
+	Number             string `gorm:"uniqueIndex:unique_batch_number"`
 	ExpirationDuration time.Duration
 	Note               string
 }
 
 type SerialNumber struct {
 	gorm.Model
-	ProductID string
-	Number    string
+	ProductID string `gorm:"uniqueIndex:unique_serial_number"`
+	Number    string `gorm:"uniqueIndex:unique_serial_number"`
 	Note      string
 }
 
 type Company struct {
 	gorm.Model
-	Name          string
-	Code          string
-	Country       string
+	Name          string `gorm:"uniqueIndex:unique_company"`
+	Code          string `gorm:"uniqueIndex:unique_company"`
+	Country       string `gorm:"uniqueIndex:unique_company"`
 	Address       string
 	CompanyTypeID int
 	UserID        sql.NullInt32
@@ -624,14 +624,14 @@ func (Company) TableName() string {
 
 type CompanyType struct {
 	gorm.Model
-	Type string
+	Type string `gorm:"uniqueIndex:unique_company_type"`
 	Note string
 }
 
 type StockLocation struct {
 	gorm.Model
-	Name      string
-	StockID   string
+	Name      string `gorm:"uniqueIndex:unique_stock_location"`
+	StockID   string `gorm:"uniqueIndex:unique_stock_location"`
 	MaxCount  sql.NullInt32
 	MaxVolume sql.NullFloat64
 	Note      string
@@ -656,17 +656,18 @@ type StockOrderRecord struct {
 
 type StockRecord struct {
 	gorm.Model
-	DateTime     time.Time
-	StockID      int
-	UserID       int
+	DateTime     time.Time `gorm:"uniqueIndex:unique_stock_record"`
+	StockID      int       `gorm:"uniqueIndex:unique_stock_record"`
+	UserID       int       `gorm:"uniqueIndex:unique_stock_record"`
+	RecordTypeID int       `gorm:"uniqueIndex:unique_stock_record"`
 	CompanyID    sql.NullInt32
-	RecordTypeID int
 	StockOrderID sql.NullInt32
 	Note         string
 }
 
 type StockRecordItem struct {
 	gorm.Model
+	StockRecordId   int
 	ProductID       int
 	BatchNumberID   sql.NullInt32
 	SerialNumberID  sql.NullInt32
@@ -677,7 +678,6 @@ type StockRecordItem struct {
 }
 
 type RecordType struct {
-	//TODO:receive, putaway, crossdocking, inventory
 	gorm.Model
 	Name string
 	Note sql.NullString
