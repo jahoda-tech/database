@@ -660,7 +660,7 @@ type StockRecord struct {
 	StockID      int       `gorm:"uniqueIndex:unique_stock_record"`
 	UserID       int       `gorm:"uniqueIndex:unique_stock_record"`
 	RecordTypeID int       `gorm:"uniqueIndex:unique_stock_record"`
-	CompanyID    sql.NullInt32
+	CompanyID    int
 	StockOrderID sql.NullInt32
 	Note         string
 }
