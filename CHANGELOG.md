@@ -14,6 +14,12 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+## [2023.1.3.7] - 2023-03-07
+
+### Added
+
+- Closed to stock record
+
 ## [2023.1.3.6] - 2023-03-06
 
 ### Added

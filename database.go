@@ -662,6 +662,7 @@ type StockRecord struct {
 	RecordTypeID int       `gorm:"uniqueIndex:unique_stock_record"`
 	CompanyID    int       `gorm:"uniqueIndex:unique_stock_record"`
 	StockOrderID sql.NullInt32
+	Closed       bool
 	Note         string
 }
 
