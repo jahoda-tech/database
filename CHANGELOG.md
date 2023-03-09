@@ -20,6 +20,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 - StockRecord: StockId changed StockInId and StockOutId
 - StockRecordItem: Location changed LocationInId and LocationOutId
+- StockStateRecord: Removed CompanyId
 
 ## [2023.1.3.7] - 2023-03-07
 

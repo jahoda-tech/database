@@ -586,7 +586,6 @@ type StockStateRecord struct {
 	SerialNumberID  sql.NullInt32
 	BatchNumberID   sql.NullInt32
 	StockLocationID sql.NullInt32
-	CompanyID       sql.NullInt32
 	Count           sql.NullInt32
 	Volume          sql.NullFloat64
 	Note            string
