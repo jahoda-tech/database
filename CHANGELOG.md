@@ -14,6 +14,13 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+## [2023.1.3.9] - 2023-03-09
+
+### Changed
+
+- StockRecord: StockId changed StockInId and StockOutId
+- StockRecordItem: Location changed LocationInId and LocationOutId
+
 ## [2023.1.3.7] - 2023-03-07
 
 ### Added
@@ -26,7 +33,6 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 - Unique indexes for xstock tables
 
-
 ## [2023.1.2.17] - 2023-02-17
 
 ### Changed
@@ -34,14 +40,12 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 - DateTimeStart and DateTimeEnd for StockOrderRecord
 - CompanyTypeId changed to int from string
 
-
 ## [2023.1.2.7] - 2023-02-07
 
 ### Added
 
 - updated to latest go and libraries
 - database structure for xStock warehouse management system
-
 
 ## [2023.1.1.16] - 2023-01-16
 
@@ -55,7 +59,6 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 - Checklist and ChecklistRecord tables
 - ImageUrl to checklist table
-
 
 ## [2022.4.1.31] - 2022-10-31
 
@@ -112,9 +115,11 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 - OperationOrderRecord
 
 ### Added
+
 - OrderId for Operation
 
 ### Changed
+
 - order and operation has unique barcode, not name
 
 ## [2022.2.3.20] - 2022-06-20

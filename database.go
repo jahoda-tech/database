@@ -657,10 +657,11 @@ type StockOrderRecord struct {
 type StockRecord struct {
 	gorm.Model
 	DateTime     time.Time `gorm:"uniqueIndex:unique_stock_record"`
-	StockID      int       `gorm:"uniqueIndex:unique_stock_record"`
 	UserID       int       `gorm:"uniqueIndex:unique_stock_record"`
 	RecordTypeID int       `gorm:"uniqueIndex:unique_stock_record"`
 	CompanyID    int       `gorm:"uniqueIndex:unique_stock_record"`
+	StockInID    sql.NullInt32
+	StockOutID   sql.NullInt32
 	StockOrderID sql.NullInt32
 	Closed       bool
 	Note         string
@@ -668,14 +669,15 @@ type StockRecord struct {
 
 type StockRecordItem struct {
 	gorm.Model
-	StockRecordId   int
-	ProductID       int
-	BatchNumberID   sql.NullInt32
-	SerialNumberID  sql.NullInt32
-	StockLocationID sql.NullInt32
-	Count           sql.NullInt32
-	Volume          sql.NullFloat64
-	Note            string
+	StockRecordId      int
+	ProductID          int
+	BatchNumberID      sql.NullInt32
+	SerialNumberID     sql.NullInt32
+	StockLocationInID  sql.NullInt32
+	StockLocationOutID sql.NullInt32
+	Count              sql.NullInt32
+	Volume             sql.NullFloat64
+	Note               string
 }
 
 type RecordType struct {
