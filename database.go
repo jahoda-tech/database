@@ -174,7 +174,7 @@ type Order struct {
 type Product struct {
 	gorm.Model
 	Name             string `gorm:"unique"`
-	ProductType      int    `gorm:"default:1"`
+	ProductTypeId    int    `gorm:"default:1"`
 	Location         bool
 	Barcode          string
 	CycleTime        int
