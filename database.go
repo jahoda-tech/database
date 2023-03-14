@@ -174,11 +174,20 @@ type Order struct {
 type Product struct {
 	gorm.Model
 	Name             string `gorm:"unique"`
+	ProductType      int    `gorm:"default:1"`
+	Location         bool
 	Barcode          string
 	CycleTime        int
 	DownTimeDuration time.Duration
 	Unit             sql.NullString
 	Note             string
+}
+
+type ProductType struct {
+	gorm.Model
+	Name string `gorm:"unique"`
+	Type string
+	Note string
 }
 
 type Part struct {
@@ -649,6 +658,7 @@ type StockOrderRecord struct {
 	BatchNumberID   sql.NullInt32
 	Count           sql.NullInt32
 	Volume          sql.NullFloat64
+	CanChange       bool
 	Completed       bool
 	Note            string
 }

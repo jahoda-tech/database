@@ -14,6 +14,14 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+## [2023.1.3.14] - 2023-03-14
+
+### Added
+
+- ProductType struct
+- ProductType and Location for Product
+- CanChange for StockOrderRecord
+
 ## [2023.1.3.9] - 2023-03-09
 
 ### Changed
