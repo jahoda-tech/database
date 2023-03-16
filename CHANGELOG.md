@@ -14,6 +14,12 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+## [2023.1.3.16] - 2023-03-16
+
+### Added
+
+- CountType struct
+
 ## [2023.1.3.14] - 2023-03-14
 
 ### Added

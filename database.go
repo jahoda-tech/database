@@ -174,16 +174,25 @@ type Order struct {
 type Product struct {
 	gorm.Model
 	Name             string `gorm:"unique"`
-	ProductTypeID    int    `gorm:"default:1"`
-	Location         bool
 	Barcode          string
-	CycleTime        int
-	DownTimeDuration time.Duration
 	Unit             sql.NullString
+	DownTimeDuration time.Duration
+	ProductTypeID    int `gorm:"default:1"`
+	CountTypeID      int `gorm:"default:1"`
+	CycleTime        int
+	Location         bool
+	CountTypeId      int
 	Note             string
 }
 
 type ProductType struct {
+	gorm.Model
+	Name string `gorm:"unique"`
+	Type string
+	Note string
+}
+
+type CountType struct {
 	gorm.Model
 	Name string `gorm:"unique"`
 	Type string
