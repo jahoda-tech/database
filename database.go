@@ -181,7 +181,6 @@ type Product struct {
 	CountTypeID      int `gorm:"default:1"`
 	CycleTime        int
 	Location         bool
-	CountTypeId      int
 	Note             string
 }
 
