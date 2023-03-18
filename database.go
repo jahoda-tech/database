@@ -179,7 +179,7 @@ type Product struct {
 	DownTimeDuration time.Duration
 	ProductTypeID    int `gorm:"default:1"`
 	CountTypeID      int `gorm:"default:1"`
-	CycleTime        int
+	CycleTime        float64
 	Location         bool
 	Note             string
 }
