@@ -660,6 +660,7 @@ type StockOrderRecord struct {
 	CompanyID       int
 	RecordTypeID    int
 	ProductID       int
+	ExternalID      int
 	DateTimeEnd     sql.NullTime
 	StockLocationID sql.NullInt32
 	SerialNumberID  sql.NullInt32
