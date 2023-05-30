@@ -181,6 +181,10 @@ type Product struct {
 	CountTypeID      int `gorm:"default:1"`
 	CycleTime        float64
 	Location         bool
+	PurchasePrice    float32
+	SalePrice        float32
+	PartnerPrice     float32
+	Fee              float32
 	Note             string
 }
 
