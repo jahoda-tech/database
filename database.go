@@ -211,13 +211,21 @@ type Part struct {
 
 type Workplace struct {
 	gorm.Model
-	Name            string `gorm:"unique"`
-	Code            string
-	WorkplaceModeID int
-	Voltage         int
-	PowerFactor     float32
-	Unit            string
-	Note            string
+	Name              string `gorm:"unique"`
+	Code              string
+	WorkplaceModeID   int
+	Voltage           int
+	PowerFactor       float32
+	ConsumptionTypeID int
+	Unit              string
+	Note              string
+}
+
+type ConsumptionType struct {
+	gorm.Model
+	Name string `gorm:"unique"`
+	Code string
+	Note string
 }
 
 type WorkplacePort struct {
