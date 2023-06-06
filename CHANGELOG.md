@@ -20,6 +20,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 - ConsumptionType table
 - ConsumptionTypeID to workplace table
+- ConsumptionImpulsesPerWatt to workplace table
 
 ## [2023.2.2.30] - 2023-05-30
 
