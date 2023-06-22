@@ -723,3 +723,11 @@ type ProductPackageRecord struct {
 	SerialNumberID sql.NullInt32
 	BatchNumberID  sql.NullInt32
 }
+
+type Holiday struct {
+	gorm.Model
+	Date        time.Time
+	Name        string
+	Holiday     bool
+	HolidayName string
+}
