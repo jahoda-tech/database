@@ -181,6 +181,8 @@ type Product struct {
 	CountTypeID      int `gorm:"default:1"`
 	CycleTime        float64
 	Location         bool
+	Image            []byte
+	ImageUrl         string
 	PurchasePrice    sql.NullFloat64
 	SalePrice        sql.NullFloat64
 	PartnerPrice     sql.NullFloat64

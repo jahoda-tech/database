@@ -14,6 +14,12 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+## [2023.2.10.7] - 2023-07-10
+
+### Added
+
+- Image and ImageUrl to product for xStock
+
 ## [2023.2.3.6] - 2023-06-06
 
 ### Added
