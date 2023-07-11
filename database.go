@@ -716,6 +716,7 @@ type StockRecordItem struct {
 type RecordType struct {
 	gorm.Model
 	Name string
+	Type string
 	Note sql.NullString
 }
 
