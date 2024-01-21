@@ -14,6 +14,12 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+## [2024.1.1.21] - 2024-01-21
+
+### Added
+
+- foreign keys to alarm and alarm_record tables
+
 ## [2023.3.2.22] - 2023-08-22
 
 ### Changed
