@@ -15,6 +15,13 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Security``` in case of vulnerabilities.
 
 
+## [2024.1.2.26] - 2024-02-26
+
+### Changed
+
+- update to latest gorm
+
+
 ## [2024.1.2.23] - 2024-02-23
 
 ### Changed
