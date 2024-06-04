@@ -1,26 +1,16 @@
-# Database Changelog
+# database changelog
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
+## [2024.2.3.4] - 2024-06-04
 
-Please note, that this project, while following numbering syntax, it DOES NOT adhere
-to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
+### Added
 
-## Types of changes
-
-* ```Added``` for new features.
-* ```Changed``` for changes in existing functionality.
-* ```Deprecated``` for soon-to-be removed features.
-* ```Removed``` for now removed features.
-* ```Fixed``` for any bug fixes.
-* ```Security``` in case of vulnerabilities.
-
+- add api description from private api_service
 
 ## [2024.1.2.26] - 2024-02-26
 
 ### Changed
 
 - update to latest gorm
-
 
 ## [2024.1.2.23] - 2024-02-23
 
@@ -35,7 +25,6 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 - index renamed
 - index reformat (added, removed, changed, etc)
 - default values for bools
-
 
 ## [2024.1.1.23] - 2024-01-23
 
@@ -77,7 +66,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 ### Added
 
-- type to RecordType
+- ## to RecordType
 
 ## [2023.3.1.10] - 2023-07-10
 
@@ -89,7 +78,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 ### Added
 
-- ConsumptionType table
+- Consumption## table
 - ConsumptionTypeID to workplace table
 - ConsumptionImpulsesPerWatt to workplace table
 
@@ -121,14 +110,14 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 ### Added
 
-- CountType struct
+- Count## struct
 
 ## [2023.1.3.14] - 2023-03-14
 
 ### Added
 
-- ProductType struct
-- ProductType and Location for Product
+- Product## struct
+- Product## and Location for Product
 - CanChange for StockOrderRecord
 
 ## [2023.1.3.9] - 2023-03-09
@@ -606,7 +595,7 @@ to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 ### Fixed
 
 - proper creating mssql database, NO ACTION instead of RESTRICT
-- proper creating all databases (instead of using gorm.model own columns used)
+- proper creating all databases (instead of using own columns used)
 
 ## [2020.1.1.1] - 2020-01-01
 
