@@ -4,7 +4,7 @@
 
 ### Added
 
-- add api description from private api_service
+- copy api description from private api_service
 
 ## [2024.1.2.26] - 2024-02-26
 

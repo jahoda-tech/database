@@ -97,6 +97,15 @@ type DowntimeRecord struct {
 	Note          string
 }
 
+type ImageRecord struct {
+	gorm.Model
+	DateTimeStart time.Time     `gorm:"uniqueIndex:unique_downtime_record"`
+	OrderRecordID sql.NullInt32 `gorm:"uniqueIndex:unique_downtime_record"`
+	OrderRecord   OrderRecord
+	Image         []byte
+	Note          string
+}
+
 type BreakdownRecord struct {
 	gorm.Model
 	DateTimeStart time.Time `gorm:"uniqueIndex:unique_breakdown_record"`
