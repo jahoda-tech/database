@@ -620,6 +620,7 @@ type MaintenanceType struct {
 type Maintenance struct {
 	gorm.Model
 	Name              string `gorm:"uniqueIndex:unique_maintenance"`
+	Information       string
 	MaintenanceTypeID int
 	MaintenanceType   MaintenanceType
 	Note              string
@@ -631,24 +632,28 @@ type MaintenanceWorkplaceRecord struct {
 	Maintenance   Maintenance
 	WorkplaceID   int `gorm:"uniqueIndex:unique_maintenance_workplace_record"`
 	Workplace     Workplace
+	UserID        sql.NullInt32
+	User          User
+	StartDate     time.Time
+	IntervalDays  int
 	Note          string
 }
 
 type MaintenanceRecord struct {
 	gorm.Model
-	MaintenanceID   int `gorm:"uniqueIndex:unique_maintenance_record"`
-	Maintenance     Maintenance
-	DateTime        time.Time `gorm:"uniqueIndex:unique_maintenance_record"`
-	UserID          int       `gorm:"uniqueIndex:unique_maintenance_record"`
-	User            User
-	WorkplaceID     int `gorm:"uniqueIndex:unique_maintenance_record"`
-	Workplace       Workplace
-	UserNote        string
-	MaintenanceNote string
-	ControlUserID   sql.NullInt32
-	ControlUser     User
-	ControlDateTime sql.NullTime
-	Note            string
+	MaintenanceID     int `gorm:"uniqueIndex:unique_maintenance_record"`
+	Maintenance       Maintenance
+	RequestedDateTime time.Time
+	DateTime          time.Time `gorm:"uniqueIndex:unique_maintenance_record"`
+	UserID            int       `gorm:"uniqueIndex:unique_maintenance_record"`
+	User              User
+	WorkplaceID       int `gorm:"uniqueIndex:unique_maintenance_record"`
+	Workplace         Workplace
+	MaintenanceNote   string
+	ControlUserID     sql.NullInt32
+	ControlUser       User
+	ControlDateTime   sql.NullTime
+	Note              string
 }
 
 type Checklist struct {
