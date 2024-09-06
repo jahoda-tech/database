@@ -689,7 +689,7 @@ type ChecklistRecord struct {
 	Checklist      Checklist
 	WorkplaceID    int `gorm:"uniqueIndex:unique_checklist_record"`
 	Workplace      Workplace
-	UserId         int `gorm:"uniqueIndex:unique_checklist_record"`
+	UserID         int `gorm:"uniqueIndex:unique_checklist_record"`
 	User           User
 	OrderID        int
 	Order          Order
@@ -817,14 +817,14 @@ type StockRecord struct {
 	StockIn      Stock
 	StockOutID   sql.NullInt32
 	StockOut     Stock
-	ExternalId   int
+	ExternalID   int
 	Closed       bool `gorm:"default:false"`
 	Note         string
 }
 
 type StockRecordItem struct {
 	gorm.Model
-	StockRecordId      int
+	StockRecordID      int
 	StockRecord        StockRecord
 	ProductID          int
 	Product            Product
