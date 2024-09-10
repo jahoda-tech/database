@@ -166,26 +166,28 @@ type PartRecord struct {
 
 type OrderRecord struct {
 	gorm.Model
-	DateTimeStart   time.Time `gorm:"uniqueIndex:unique_order_record"`
-	DateTimeEnd     sql.NullTime
-	OrderID         int `gorm:"uniqueIndex:unique_order_record"`
-	Order           Order
-	OperationID     int `gorm:"uniqueIndex:unique_order_record"`
-	Operation       Operation
-	WorkplaceID     int `gorm:"uniqueIndex:unique_order_record"`
-	Workplace       Workplace
-	UserID          sql.NullInt32 `gorm:"uniqueIndex:unique_order_record"`
-	User            User
-	WorkplaceModeID int
-	WorkplaceMode   WorkplaceMode
-	WorkshiftID     int
-	Workshift       Workshift
-	AverageCycle    float32
-	Cavity          int
-	CountOk         int
-	CountNok        int
-	Consumption     float32
-	Note            string
+	DateTimeStart      time.Time `gorm:"uniqueIndex:unique_order_record"`
+	DateTimeEnd        sql.NullTime
+	OrderID            int `gorm:"uniqueIndex:unique_order_record"`
+	Order              Order
+	OperationID        int `gorm:"uniqueIndex:unique_order_record"`
+	Operation          Operation
+	WorkplaceID        int `gorm:"uniqueIndex:unique_order_record"`
+	Workplace          Workplace
+	UserID             sql.NullInt32 `gorm:"uniqueIndex:unique_order_record"`
+	User               User
+	WorkplaceModeID    int
+	WorkplaceMode      WorkplaceMode
+	WorkshiftID        int
+	Workshift          Workshift
+	AverageCycle       float32
+	Cavity             int
+	CountOk            int
+	CountNok           int
+	Consumption        float32
+	ProductionDuration time.Duration
+	DowntimeDuration   time.Duration
+	Note               string
 }
 
 type Operation struct {
