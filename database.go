@@ -631,15 +631,16 @@ type Maintenance struct {
 
 type MaintenanceWorkplaceRecord struct {
 	gorm.Model
-	MaintenanceID int `gorm:"uniqueIndex:unique_maintenance_workplace_record"`
-	Maintenance   Maintenance
-	WorkplaceID   int `gorm:"uniqueIndex:unique_maintenance_workplace_record"`
-	Workplace     Workplace
-	UserID        sql.NullInt32
-	User          User
-	StartDate     time.Time
-	IntervalDays  int
-	Note          string
+	MaintenanceID         int `gorm:"uniqueIndex:unique_maintenance_workplace_record"`
+	Maintenance           Maintenance
+	WorkplaceID           sql.NullInt32 `gorm:"uniqueIndex:unique_maintenance_workplace_record"`
+	Workplace             Workplace
+	UserID                sql.NullInt32 `gorm:"uniqueIndex:unique_maintenance_workplace_record"`
+	User                  User
+	AdditionalInformation string `gorm:"uniqueIndex:unique_maintenance_workplace_record"`
+	StartDate             time.Time
+	IntervalDays          int
+	Note                  string
 }
 
 type MaintenanceRecord struct {
