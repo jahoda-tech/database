@@ -524,6 +524,7 @@ type Locale struct {
 	PtPT string
 	SkSK string
 	RuRU string
+	UkUA string
 }
 
 type WebUserRecord struct {
