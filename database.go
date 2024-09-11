@@ -629,6 +629,13 @@ type Maintenance struct {
 	Note              string
 }
 
+type Place struct {
+	gorm.Model
+	Name        string `gorm:"uniqueIndex:unique_place"`
+	Information string
+	Note        string
+}
+
 type MaintenanceWorkplaceRecord struct {
 	gorm.Model
 	MaintenanceID         int `gorm:"uniqueIndex:unique_maintenance_workplace_record"`
@@ -637,7 +644,9 @@ type MaintenanceWorkplaceRecord struct {
 	Workplace             Workplace
 	UserID                sql.NullInt32 `gorm:"uniqueIndex:unique_maintenance_workplace_record"`
 	User                  User
-	AdditionalInformation string `gorm:"uniqueIndex:unique_maintenance_workplace_record"`
+	PlaceId               sql.NullInt32 `gorm:"uniqueIndex:unique_maintenance_workplace_record"`
+	Place                 Place
+	AdditionalInformation string
 	StartDate             time.Time
 	IntervalDays          int
 	Note                  string
