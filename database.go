@@ -662,6 +662,8 @@ type MaintenanceRecord struct {
 	User              User
 	WorkplaceID       int `gorm:"uniqueIndex:unique_maintenance_record"`
 	Workplace         Workplace
+	PlaceID           int `gorm:"uniqueIndex:unique_maintenance_record"`
+	Place             Place
 	MaintenanceNote   string
 	ControlUserID     sql.NullInt32
 	ControlUser       User
