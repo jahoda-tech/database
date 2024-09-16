@@ -644,7 +644,7 @@ type MaintenanceWorkplaceRecord struct {
 	Workplace             Workplace
 	UserID                sql.NullInt32 `gorm:"uniqueIndex:unique_maintenance_workplace_record"`
 	User                  User
-	PlaceId               sql.NullInt32 `gorm:"uniqueIndex:unique_maintenance_workplace_record"`
+	PlaceID               sql.NullInt32 `gorm:"uniqueIndex:unique_maintenance_workplace_record"`
 	Place                 Place
 	AdditionalInformation string
 	StartDate             time.Time
