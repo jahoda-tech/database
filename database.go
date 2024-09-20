@@ -657,7 +657,8 @@ type MaintenanceRecord struct {
 	MaintenanceID     int `gorm:"uniqueIndex:unique_maintenance_record"`
 	Maintenance       Maintenance
 	RequestedDateTime time.Time `gorm:"uniqueIndex:unique_maintenance_record"`
-	DateTime          sql.NullTime
+	DateTimeStart     sql.NullTime
+	DateTimeEnd       sql.NullTime
 	UserID            sql.NullInt32 `gorm:"uniqueIndex:unique_maintenance_record"`
 	User              User
 	WorkplaceID       sql.NullInt32 `gorm:"uniqueIndex:unique_maintenance_record"`
