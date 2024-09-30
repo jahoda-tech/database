@@ -1,6 +1,6 @@
 module github.com/jahoda-tech/database
 
-go 1.22
+go 1.23
 
 require gorm.io/gorm v1.25.12
 
