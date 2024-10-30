@@ -222,7 +222,7 @@ type Order struct {
 type Product struct {
 	gorm.Model
 	Name             string `gorm:"uniqueIndex:unique_product"`
-	Barcode          string `gorm:"uniqueIndex:unique_product"`
+	Barcode          string `gorm:"uniqueIndex:unique_product, uniqueIndex:unique_barcode"`
 	Unit             sql.NullString
 	DownTimeDuration time.Duration
 	ProductTypeID    int `gorm:"default:1"`
