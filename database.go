@@ -648,6 +648,7 @@ type MaintenanceWorkplaceRecord struct {
 	Place                 Place
 	AdditionalInformation string
 	StartDate             time.Time
+	EndDate               time.Time
 	IntervalDays          int
 	Note                  string
 }
@@ -666,6 +667,8 @@ type MaintenanceRecord struct {
 	PlaceID           sql.NullInt32 `gorm:"uniqueIndex:unique_maintenance_record"`
 	Place             Place
 	MaintenanceNote   string
+	Status            string
+	Cost              float32
 	ControlUserID     sql.NullInt32
 	ControlUser       User
 	ControlDateTime   sql.NullTime
