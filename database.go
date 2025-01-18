@@ -893,3 +893,12 @@ type Holiday struct {
 	HolidayName string
 	Note        string
 }
+
+type WorkplaceDowntimeRecord struct {
+	gorm.Model
+	WorkplaceID int `gorm:"uniqueIndex:unique_workplace_downtime_record"`
+	Workplace   Workplace
+	DowntimeID  int `gorm:"uniqueIndex:unique_workplace_downtime_record"`
+	Downtime    Downtime
+	Note        string
+}
