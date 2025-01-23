@@ -2,6 +2,7 @@ package database
 
 import (
 	"database/sql"
+	"gorm.io/datatypes"
 	"gorm.io/gorm"
 	"time"
 )
@@ -18,6 +19,7 @@ type Alarm struct {
 	Url           string
 	Pdf           string
 	Note          string
+	Data          datatypes.JSON
 }
 
 type AlarmRecord struct {
@@ -49,6 +51,7 @@ type State struct {
 	Color string
 	State string
 	Note  string
+	Data  datatypes.JSON
 }
 
 type StateRecord struct {
@@ -197,12 +200,14 @@ type Operation struct {
 	Order   Order
 	Barcode string `gorm:"uniqueIndex:unique_operation"`
 	Note    string
+	Data    datatypes.JSON
 }
 
 type WorkplaceSection struct {
 	gorm.Model
 	Name string `gorm:"uniqueIndex:workplace_section"`
 	Note string
+	Data datatypes.JSON
 }
 
 type Order struct {
@@ -217,6 +222,7 @@ type Order struct {
 	Cavity          int
 	CountRequest    int
 	Note            string
+	Data            datatypes.JSON
 }
 
 type Product struct {
@@ -238,6 +244,7 @@ type Product struct {
 	PartnerPrice     sql.NullFloat64
 	Fee              sql.NullFloat64
 	Note             string
+	Data             datatypes.JSON
 }
 
 type ProductType struct {
@@ -245,6 +252,7 @@ type ProductType struct {
 	Name string `gorm:"uniqueIndex:unique_product_type"`
 	Type string
 	Note string
+	Data datatypes.JSON
 }
 
 type CountType struct {
@@ -252,6 +260,7 @@ type CountType struct {
 	Name string `gorm:"uniqueIndex:unique_count_type"`
 	Type string
 	Note string
+	Data datatypes.JSON
 }
 
 type Part struct {
@@ -259,6 +268,7 @@ type Part struct {
 	Name    string `gorm:"uniqueIndex:unique_part"`
 	Barcode string
 	Note    string
+	Data    datatypes.JSON
 }
 
 type Workplace struct {
@@ -274,6 +284,7 @@ type Workplace struct {
 	ConsumptionImpulsesPerWatt float32
 	Unit                       string
 	Note                       string
+	Data                       datatypes.JSON
 }
 
 type ConsumptionType struct {
@@ -281,6 +292,7 @@ type ConsumptionType struct {
 	Name string `gorm:"uniqueIndex:unique_consumption_type"`
 	Code string
 	Note string
+	Data datatypes.JSON
 }
 
 type WorkplacePort struct {
@@ -298,6 +310,7 @@ type WorkplacePort struct {
 	HighValue    float32
 	LowValue     float32
 	Note         string
+	Data         datatypes.JSON
 }
 
 type WorkplaceMode struct {
@@ -306,6 +319,7 @@ type WorkplaceMode struct {
 	DowntimeDuration time.Duration
 	PoweroffDuration time.Duration
 	Note             string
+	Data             datatypes.JSON
 }
 
 type WorkplaceWorkshift struct {
@@ -315,6 +329,7 @@ type WorkplaceWorkshift struct {
 	WorkshiftID int `gorm:"uniqueIndex:unique_workplace_workshift"`
 	Workshift   Workshift
 	Note        string
+	Data        datatypes.JSON
 }
 
 type Workshift struct {
@@ -323,6 +338,7 @@ type Workshift struct {
 	WorkshiftStart int
 	WorkshiftEnd   int
 	Note           string
+	Data           datatypes.JSON
 }
 
 type User struct {
@@ -342,18 +358,21 @@ type User struct {
 	Rfid       string `gorm:"index"`
 	Locale     string
 	Note       string
+	Data       datatypes.JSON
 }
 
 type UserRole struct {
 	gorm.Model
 	Name string `gorm:"uniqueIndex:unique_user_role"`
 	Note string
+	Data datatypes.JSON
 }
 
 type UserType struct {
 	gorm.Model
 	Name string `gorm:"uniqueIndex:unique_user_type"`
 	Note string
+	Data datatypes.JSON
 }
 
 type Downtime struct {
@@ -364,12 +383,14 @@ type Downtime struct {
 	Barcode        string
 	Color          string
 	Note           string
+	Data           datatypes.JSON
 }
 
 type DowntimeType struct {
 	gorm.Model
 	Name string `gorm:"uniqueIndex:unique_downtime_type"`
 	Note string
+	Data datatypes.JSON
 }
 
 type Breakdown struct {
@@ -380,12 +401,14 @@ type Breakdown struct {
 	Barcode         string
 	Color           string
 	Note            string
+	Data            datatypes.JSON
 }
 
 type BreakdownType struct {
 	gorm.Model
 	Name string `gorm:"uniqueIndex:unique_breakdown_type"`
 	Note string
+	Data datatypes.JSON
 }
 
 type Fault struct {
@@ -395,12 +418,14 @@ type Fault struct {
 	FaultType   FaultType
 	Barcode     string
 	Note        string
+	Data        datatypes.JSON
 }
 
 type FaultType struct {
 	gorm.Model
 	Name string `gorm:"uniqueIndex:unique_fault_type"`
 	Note string
+	Data datatypes.JSON
 }
 
 type Package struct {
@@ -412,6 +437,7 @@ type Package struct {
 	PackageType   PackageType
 	Barcode       string
 	Note          string
+	Data          datatypes.JSON
 }
 
 type PackageType struct {
@@ -419,12 +445,14 @@ type PackageType struct {
 	Name  string `gorm:"uniqueIndex:unique_package_type"`
 	Count int
 	Note  string
+	Data  datatypes.JSON
 }
 
 type DevicePortType struct {
 	gorm.Model
 	Name string `gorm:"uniqueIndex:unique_device_port_type"`
 	Note string
+	Data datatypes.JSON
 }
 
 type Setting struct {
@@ -433,12 +461,14 @@ type Setting struct {
 	Value   string
 	Enabled bool `gorm:"default:true"`
 	Note    string
+	Data    datatypes.JSON
 }
 
 type DeviceType struct {
 	gorm.Model
 	Name string `gorm:"uniqueIndex:unique_device_type"`
 	Note string
+	Data datatypes.JSON
 }
 
 type Device struct {
@@ -452,6 +482,7 @@ type Device struct {
 	Settings     string
 	TypeName     string
 	Note         string
+	Data         datatypes.JSON
 }
 
 type DeviceWorkplaceRecord struct {
@@ -477,6 +508,7 @@ type DevicePort struct {
 	Unit             string
 	Virtual          bool `gorm:"default:false"`
 	Note             string
+	Data             datatypes.JSON
 }
 
 type DevicePortAnalogRecord struct {
@@ -525,6 +557,7 @@ type Locale struct {
 	SkSK string
 	RuRU string
 	UkUA string
+	Data datatypes.JSON
 }
 
 type WebUserRecord struct {
@@ -576,6 +609,7 @@ type Report struct {
 	Name string `gorm:"uniqueIndex:unique_report"`
 	Url  string
 	Note string
+	Data datatypes.JSON
 }
 
 type Bookmark struct {
@@ -583,6 +617,7 @@ type Bookmark struct {
 	Name string `gorm:"uniqueIndex:unique_bookmark"`
 	Url  string
 	Note string
+	Data datatypes.JSON
 }
 
 type Layout struct {
@@ -591,6 +626,7 @@ type Layout struct {
 	Image    []byte
 	ImageUrl string
 	Note     string
+	Data     datatypes.JSON
 }
 
 type WorkplaceSectionRecord struct {
@@ -618,6 +654,7 @@ type MaintenanceType struct {
 	TotalTimeFromLastRecord   sql.NullInt32
 	PowerOnTimeFromLastRecord sql.NullInt32
 	Note                      string
+	Data                      datatypes.JSON
 }
 
 type Maintenance struct {
@@ -627,6 +664,7 @@ type Maintenance struct {
 	MaintenanceTypeID int
 	MaintenanceType   MaintenanceType
 	Note              string
+	Data              datatypes.JSON
 }
 
 type Place struct {
@@ -634,6 +672,7 @@ type Place struct {
 	Name        string `gorm:"uniqueIndex:unique_place"`
 	Information string
 	Note        string
+	Data        datatypes.JSON
 }
 
 type MaintenanceWorkplaceRecord struct {
@@ -703,6 +742,7 @@ type Checklist struct {
 	OperationID        sql.NullInt32
 	Operation          Operation
 	Note               string
+	Data               datatypes.JSON
 }
 
 type ChecklistRecord struct {
@@ -732,6 +772,7 @@ type Stock struct {
 	Name string `gorm:"uniqueIndex:unique_stock"`
 	Code string `gorm:"uniqueIndex:unique_stock"`
 	Note string
+	Data datatypes.JSON
 }
 
 type StockStateRecord struct {
@@ -758,6 +799,7 @@ type BatchNumber struct {
 	Number             string `gorm:"uniqueIndex:unique_batch_number"`
 	ExpirationDuration time.Duration
 	Note               string
+	Data               datatypes.JSON
 }
 
 type SerialNumber struct {
@@ -766,6 +808,7 @@ type SerialNumber struct {
 	Product   Product
 	Number    string `gorm:"uniqueIndex:unique_serial_number"`
 	Note      string
+	Data      datatypes.JSON
 }
 
 type Company struct {
@@ -779,6 +822,7 @@ type Company struct {
 	UserID        sql.NullInt32
 	User          User
 	Note          string
+	Data          datatypes.JSON
 }
 
 func (Company) TableName() string {
@@ -789,6 +833,7 @@ type CompanyType struct {
 	gorm.Model
 	Type string `gorm:"uniqueIndex:unique_company_type"`
 	Note string
+	Data datatypes.JSON
 }
 
 type StockLocation struct {
@@ -799,6 +844,7 @@ type StockLocation struct {
 	MaxCount  sql.NullInt32
 	MaxVolume sql.NullFloat64
 	Note      string
+	Data      datatypes.JSON
 }
 
 type StockOrderRecord struct {
@@ -873,6 +919,7 @@ type RecordType struct {
 	Name string `gorm:"uniqueIndex:unique_record_type"`
 	Type string
 	Note string
+	Data datatypes.JSON
 }
 
 type ProductPackageRecord struct {
@@ -892,4 +939,5 @@ type Holiday struct {
 	Holiday     bool `gorm:"default:false"`
 	HolidayName string
 	Note        string
+	Data        datatypes.JSON
 }
