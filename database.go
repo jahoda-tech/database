@@ -69,6 +69,7 @@ type PageCount struct {
 	PageName string `gorm:"uniqueIndex:unique_page_count"`
 	Count    int
 	Note     string
+	Data     datatypes.JSON
 }
 
 type UserRecord struct {
