@@ -196,12 +196,13 @@ type OrderRecord struct {
 
 type Operation struct {
 	gorm.Model
-	Name    string `gorm:"uniqueIndex:unique_operation"`
-	OrderID int
-	Order   Order
-	Barcode string `gorm:"uniqueIndex:unique_operation"`
-	Note    string
-	Data    datatypes.JSON
+	Name            string `gorm:"uniqueIndex:unique_operation"`
+	OrderID         int
+	Order           Order
+	Barcode         string `gorm:"uniqueIndex:unique_operation"`
+	DateTimeRequest sql.NullTime
+	Note            string
+	Data            datatypes.JSON
 }
 
 type WorkplaceSection struct {
