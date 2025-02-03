@@ -273,6 +273,17 @@ type Part struct {
 	Data    datatypes.JSON
 }
 
+type InformationRecord struct {
+	gorm.Model
+	Information string        `gorm:"uniqueIndex:unique_information_record"`
+	OrderID     sql.NullInt32 `gorm:"uniqueIndex:unique_information_record"`
+	Order       Order
+	OperationID sql.NullInt32 `gorm:"uniqueIndex:unique_information_record"`
+	Operation   Operation
+	Note        string
+	Data        datatypes.JSON
+}
+
 type Workplace struct {
 	gorm.Model
 	Name                       string `gorm:"uniqueIndex:unique_workplace"`
