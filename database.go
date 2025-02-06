@@ -676,6 +676,8 @@ type Maintenance struct {
 	Information       string
 	MaintenanceTypeID int
 	MaintenanceType   MaintenanceType
+	Image             []byte
+	ImageUrl          string
 	Note              string
 	Data              datatypes.JSON
 }
