@@ -542,32 +542,32 @@ type DevicePort struct {
 
 type DevicePortAnalogRecord struct {
 	ID           int       `gorm:"primaryKey"`
-	DateTime     time.Time `gorm:"uniqueIndex:unique_analog_data;index:analog_data_date_time"`
-	DevicePortID int       `gorm:"uniqueIndex:unique_analog_data;index:analog_data_device_port_id"`
+	DateTime     time.Time `gorm:"uniqueIndex:unique_analog_data,priority:2"`
+	DevicePortID int       `gorm:"uniqueIndex:unique_analog_data,priority:1"`
 	DevicePort   DevicePort
 	Data         float32
 }
 
 type DevicePortSpecialRecord struct {
 	ID           int       `gorm:"primaryKey"`
-	DateTime     time.Time `gorm:"uniqueIndex:unique_special_data;index:special_data_date_time"`
-	DevicePortID int       `gorm:"uniqueIndex:unique_special_data;index:special_data_device_port_id"`
+	DateTime     time.Time `gorm:"uniqueIndex:unique_special_data,index,priority:2"`
+	DevicePortID int       `gorm:"uniqueIndex:unique_special_data,index,priority:1"`
 	DevicePort   DevicePort
 	Data         float32
 }
 
 type DevicePortDigitalRecord struct {
 	ID           int       `gorm:"primaryKey"`
-	DateTime     time.Time `gorm:"uniqueIndex:unique_digital_data;index:digital_data_date_time"`
-	DevicePortID int       `gorm:"uniqueIndex:unique_digital_data;index:digital_data_device_port_id"`
+	DateTime     time.Time `gorm:"uniqueIndex:unique_digital_data,priority:2"`
+	DevicePortID int       `gorm:"uniqueIndex:unique_digital_data,priority:1"`
 	DevicePort   DevicePort
 	Data         int
 }
 
 type DevicePortSerialRecord struct {
 	ID           int       `gorm:"primaryKey"`
-	DateTime     time.Time `gorm:"uniqueIndex:unique_serial_data;index:serial_data_date_time"`
-	DevicePortID int       `gorm:"uniqueIndex:unique_serial_data;index:serial_data_device_port_id"`
+	DateTime     time.Time `gorm:"uniqueIndex:unique_serial_data,priority:2"`
+	DevicePortID int       `gorm:"uniqueIndex:unique_serial_data,priority:1"`
 	DevicePort   DevicePort
 	Data         float32
 }
