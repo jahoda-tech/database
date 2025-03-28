@@ -558,7 +558,7 @@ type DevicePortSpecialRecord struct {
 
 type DevicePortDigitalRecord struct {
 	ID           int       `gorm:"primaryKey"`
-	DateTime     time.Time `gorm:"uniqueIndex:unique_digital_records_sdata,priority:2"`
+	DateTime     time.Time `gorm:"uniqueIndex:unique_digital_records_data,priority:2"`
 	DevicePortID int       `gorm:"uniqueIndex:unique_digital_records_data,priority:1"`
 	DevicePort   DevicePort
 	Data         int
