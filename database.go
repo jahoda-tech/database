@@ -59,7 +59,7 @@ type StateRecord struct {
 	DateTimeStart time.Time `gorm:"uniqueIndex:unique_state_records_data,priority:3"`
 	StateID       int       `gorm:"uniqueIndex:unique_state_records_data,priority:2"`
 	State         State
-	WorkplaceID   int `gorm:"uniqueIndex:unique_data,priority:1"`
+	WorkplaceID   int `gorm:"uniqueIndex:unique_state_records_data,priority:1"`
 	Workplace     Workplace
 	Note          string
 }
