@@ -218,6 +218,7 @@ type Operation struct {
 	Barcode         string `gorm:"uniqueIndex:unique_operation"`
 	DateTimeRequest sql.NullTime
 	Note            string
+	Information     string
 	Data            datatypes.JSON
 }
 
@@ -240,6 +241,7 @@ type Order struct {
 	Cavity          int
 	CountRequest    int
 	Note            string
+	Information     string
 	Data            datatypes.JSON
 }
 
@@ -262,6 +264,7 @@ type Product struct {
 	PartnerPrice     sql.NullFloat64
 	Fee              sql.NullFloat64
 	Note             string
+	Information      string
 	Data             datatypes.JSON
 }
 
