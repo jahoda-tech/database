@@ -205,8 +205,8 @@ type OrderRecord struct {
 	Consumption        float32
 	ProductionDuration time.Duration
 	DowntimeDuration   time.Duration
-	Information        string
 	Note               string
+	Data               datatypes.JSON
 }
 
 type Operation struct {
