@@ -977,9 +977,13 @@ type Holiday struct {
 
 type ProductFileRecord struct {
 	gorm.Model
-	Name      string `gorm:"uniqueIndex:unique_product_file_record,priority:2"`
-	ProductId int    `gorm:"uniqueIndex:unique_product_file_record,priority:1"`
-	Product   Product
-	Url       string
-	Note      string
+	Name        string        `gorm:"uniqueIndex:unique_product_file_record,priority:4"`
+	ProductId   sql.NullInt32 `gorm:"uniqueIndex:unique_product_file_record,priority:1"`
+	Product     Product
+	OrderId     sql.NullInt32 `gorm:"uniqueIndex:unique_product_file_record,priority:2"`
+	Order       Order
+	OperationId sql.NullInt32 `gorm:"uniqueIndex:unique_product_file_record,priority:3"`
+	Operation   Operation
+	Url         string
+	Note        string
 }
