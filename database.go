@@ -258,8 +258,6 @@ type Product struct {
 	CountType        CountType
 	CycleTime        float64
 	Location         bool `gorm:"default:false"`
-	Image            []byte
-	ImageUrl         string
 	PurchasePrice    sql.NullFloat64
 	SalePrice        sql.NullFloat64
 	PartnerPrice     sql.NullFloat64
@@ -975,4 +973,14 @@ type Holiday struct {
 	HolidayName string
 	Note        string
 	Data        datatypes.JSON
+}
+
+type ProductFileRecord struct {
+	gorm.Model
+	Name      string `gorm:"uniqueIndex:unique_product_file_record,priority:2"`
+	ProductId int    `gorm:"uniqueIndex:unique_product_file_record,priority:1"`
+	Product   Product
+	Url       string
+	File      []byte
+	Note      string
 }
