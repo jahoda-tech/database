@@ -981,6 +981,5 @@ type ProductFileRecord struct {
 	ProductId int    `gorm:"uniqueIndex:unique_product_file_record,priority:1"`
 	Product   Product
 	Url       string
-	File      []byte
 	Note      string
 }
