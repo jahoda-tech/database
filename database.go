@@ -975,7 +975,7 @@ type Holiday struct {
 	Data        datatypes.JSON
 }
 
-type ProductFileRecord struct {
+type FileRecord struct {
 	gorm.Model
 	Name        string        `gorm:"uniqueIndex:unique_product_file_record,priority:4"`
 	ProductId   sql.NullInt32 `gorm:"uniqueIndex:unique_product_file_record,priority:1"`
