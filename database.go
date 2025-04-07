@@ -968,6 +968,7 @@ type ProductPackageRecord struct {
 type Holiday struct {
 	gorm.Model
 	Date        time.Time `gorm:"uniqueIndex:unique_holiday"`
+	CountryCode string    `gorm:"uniqueIndex:unique_holiday"`
 	Name        string
 	Holiday     bool `gorm:"default:false"`
 	HolidayName string
