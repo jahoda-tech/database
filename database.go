@@ -221,6 +221,7 @@ type Operation struct {
 	Note            string
 	Information     string
 	Data            datatypes.JSON
+	ExternalId      sql.NullInt32 `gorm:"index"`
 }
 
 type WorkplaceSection struct {
@@ -244,6 +245,7 @@ type Order struct {
 	Note            string
 	Information     string
 	Data            datatypes.JSON
+	ExternalId      sql.NullInt32 `gorm:"index"`
 }
 
 type Product struct {
@@ -265,6 +267,7 @@ type Product struct {
 	Note             string
 	Information      string
 	Data             datatypes.JSON
+	ExternalId       sql.NullInt32 `gorm:"index"`
 }
 
 type ProductType struct {
