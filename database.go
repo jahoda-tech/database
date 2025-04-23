@@ -25,16 +25,18 @@ type Alarm struct {
 
 type AlarmRecord struct {
 	gorm.Model
-	DateTimeStart     time.Time `gorm:"uniqueIndex:unique_alarm_record"`
-	DateTimeEnd       sql.NullTime
-	DateTimeProcessed sql.NullTime
-	AlarmID           int `gorm:"uniqueIndex:unique_alarm_record"`
-	Alarm             Alarm
-	WorkplaceID       sql.NullInt32
-	Workplace         Workplace
-	UserID            sql.NullInt32
-	User              User
-	Note              string
+	DateTimeStart       time.Time `gorm:"uniqueIndex:unique_alarm_record"`
+	DateTimeEnd         sql.NullTime
+	DateTimeProcessed   sql.NullTime
+	AlarmID             int `gorm:"uniqueIndex:unique_alarm_record"`
+	Alarm               Alarm
+	WorkplaceID         sql.NullInt32
+	Workplace           Workplace
+	UserID              sql.NullInt32
+	User                User
+	MaintenanceRecordID sql.NullInt32
+	MaintenanceRecord   MaintenanceRecord
+	Note                string
 }
 
 type SystemRecord struct {
