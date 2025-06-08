@@ -105,7 +105,9 @@ type DowntimeRecord struct {
 	Product       Product
 	User          User
 	Consumption   float32
+	TransferState string
 	Note          string
+	Data          datatypes.JSON
 }
 
 type ImageRecord struct {
@@ -183,13 +185,13 @@ type PartRecord struct {
 
 type OrderRecord struct {
 	gorm.Model
-	DateTimeStart      time.Time `gorm:"uniqueIndex:unique_order_record"`
-	DateTimeEnd        sql.NullTime
-	OrderID            int `gorm:"uniqueIndex:unique_order_record"`
+	DateTimeStart      time.Time    `gorm:"uniqueIndex:unique_order_record;index:idx_order_datetime_workplace;index:idx_order_datetime_start"`
+	DateTimeEnd        sql.NullTime `gorm:"index:idx_order_datetime_end"`
+	OrderID            int          `gorm:"uniqueIndex:unique_order_record"`
 	Order              Order
 	OperationID        int `gorm:"uniqueIndex:unique_order_record"`
 	Operation          Operation
-	WorkplaceID        int `gorm:"uniqueIndex:unique_order_record"`
+	WorkplaceID        int `gorm:"uniqueIndex:unique_order_record;index:idx_order_datetime_workplace;index:idx_order_workplace"`
 	Workplace          Workplace
 	UserID             sql.NullInt32 `gorm:"uniqueIndex:unique_order_record"`
 	User               User
@@ -206,6 +208,7 @@ type OrderRecord struct {
 	Consumption        float32
 	ProductionDuration time.Duration
 	DowntimeDuration   time.Duration
+	TransferState      string
 	Note               string
 	Data               datatypes.JSON
 }
