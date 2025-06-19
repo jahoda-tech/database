@@ -220,8 +220,12 @@ type Operation struct {
 	Order           Order
 	ProductID       sql.NullInt32
 	Product         Product
+	WorkplaceID     sql.NullInt32
+	Workplace       Workplace
 	Barcode         string `gorm:"uniqueIndex:unique_operation"`
 	DateTimeRequest sql.NullTime
+	Cavity          int
+	CountRequest    int
 	Note            string
 	Information     string
 	Data            datatypes.JSON
