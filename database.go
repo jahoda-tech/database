@@ -2,9 +2,10 @@ package database
 
 import (
 	"database/sql"
+	"time"
+
 	"gorm.io/datatypes"
 	"gorm.io/gorm"
-	"time"
 )
 
 type Alarm struct {
@@ -269,6 +270,8 @@ type Product struct {
 	SalePrice        sql.NullFloat64
 	PartnerPrice     sql.NullFloat64
 	Fee              sql.NullFloat64
+	Image            []byte
+	ImageUrl         string
 	Note             string
 	Information      string
 	Data             datatypes.JSON
