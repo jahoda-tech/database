@@ -4,7 +4,7 @@ go 1.25
 
 require (
 	gorm.io/datatypes v1.2.6
-	gorm.io/gorm v1.30.1
+	gorm.io/gorm v1.30.2
 )
 
 require (

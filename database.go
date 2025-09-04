@@ -941,6 +941,7 @@ type StockOrderRecord struct {
 	CanChange       bool `gorm:"default:false"`
 	Completed       bool `gorm:"default:false"`
 	Note            string
+	Data            datatypes.JSON
 	ExternalId      sql.NullInt32 `gorm:"index"`
 }
 
