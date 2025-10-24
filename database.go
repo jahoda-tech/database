@@ -565,7 +565,8 @@ type DevicePort struct {
 	PlcDataAddress   string
 	Settings         string
 	Unit             string
-	Virtual          bool `gorm:"default:false"`
+	Virtual          bool    `gorm:"default:false"`
+	Threshold        float64 `gorm:"default:-999999"`
 	Note             string
 	Data             datatypes.JSON
 }
