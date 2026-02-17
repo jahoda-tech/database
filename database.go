@@ -321,6 +321,7 @@ type Workplace struct {
 	Code                       string
 	WorkplaceModeID            int
 	WorkplaceMode              WorkplaceMode
+	Phases                     int
 	Voltage                    int
 	PowerFactor                float32
 	ConsumptionTypeID          int `gorm:"default:1"`
