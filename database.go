@@ -51,7 +51,7 @@ type State struct {
 	gorm.Model
 	Name  string `gorm:"uniqueIndex:unique_state"`
 	Color string
-	State string
+	Type  string
 	Note  string
 	Data  datatypes.JSON
 }
@@ -113,8 +113,8 @@ type DowntimeRecord struct {
 
 type ImageRecord struct {
 	gorm.Model
-	DateTimeStart time.Time     `gorm:"uniqueIndex:unique_downtime_record"`
-	OrderRecordID sql.NullInt32 `gorm:"uniqueIndex:unique_downtime_record"`
+	DateTimeStart time.Time     `gorm:"uniqueIndex:unique_image_record"`
+	OrderRecordID sql.NullInt32 `gorm:"uniqueIndex:unique_image_record"`
 	OrderRecord   OrderRecord
 	Image         []byte
 	Note          string
@@ -259,7 +259,7 @@ type Product struct {
 	Name             string `gorm:"uniqueIndex:unique_product"`
 	Barcode          string `gorm:"uniqueIndex:unique_product, uniqueIndex:unique_barcode"`
 	Unit             sql.NullString
-	DownTimeDuration time.Duration
+	DowntimeDuration time.Duration
 	ProductTypeID    int `gorm:"default:1"`
 	ProductType      ProductType
 	CountTypeID      int `gorm:"default:1"`
@@ -582,8 +582,8 @@ type DevicePortAnalogRecord struct {
 
 type DevicePortSpecialRecord struct {
 	ID           int       `gorm:"primaryKey"`
-	DateTime     time.Time `gorm:"uniqueIndex:unique_special_records_data,index,priority:2"`
-	DevicePortID int       `gorm:"uniqueIndex:unique_special_records_data,index,priority:1"`
+	DateTime     time.Time `gorm:"uniqueIndex:unique_special_records_data,priority:2"`
+	DevicePortID int       `gorm:"uniqueIndex:unique_special_records_data,priority:1"`
 	DevicePort   DevicePort
 	Data         float32
 }
@@ -1011,7 +1011,7 @@ type Holiday struct {
 	Date        time.Time `gorm:"uniqueIndex:unique_holiday"`
 	CountryCode string    `gorm:"uniqueIndex:unique_holiday"`
 	Name        string
-	Holiday     bool `gorm:"default:false"`
+	IsHoliday   bool `gorm:"default:false"`
 	HolidayName string
 	Note        string
 	Data        datatypes.JSON
@@ -1020,11 +1020,11 @@ type Holiday struct {
 type FileRecord struct {
 	gorm.Model
 	Name        string        `gorm:"uniqueIndex:unique_product_file_record,priority:4"`
-	ProductId   sql.NullInt32 `gorm:"uniqueIndex:unique_product_file_record,priority:1"`
+	ProductID   sql.NullInt32 `gorm:"uniqueIndex:unique_product_file_record,priority:1"`
 	Product     Product
-	OrderId     sql.NullInt32 `gorm:"uniqueIndex:unique_product_file_record,priority:2"`
+	OrderID     sql.NullInt32 `gorm:"uniqueIndex:unique_product_file_record,priority:2"`
 	Order       Order
-	OperationId sql.NullInt32 `gorm:"uniqueIndex:unique_product_file_record,priority:3"`
+	OperationID sql.NullInt32 `gorm:"uniqueIndex:unique_product_file_record,priority:3"`
 	Operation   Operation
 	Url         string
 	Note        string
