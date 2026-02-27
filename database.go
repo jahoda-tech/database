@@ -214,6 +214,27 @@ type OrderRecord struct {
 	Data               datatypes.JSON
 }
 
+type NoteRecord struct {
+	gorm.Model
+	DateTimeStart time.Time `gorm:"uniqueIndex:unique_note_record"`
+	DateTimeEnd   sql.NullTime
+	OrderRecordID sql.NullInt32
+	OrderRecord   OrderRecord
+	OrderID       sql.NullInt32
+	Order         Order
+	OperationID   sql.NullInt32
+	Operation     Operation
+	WorkplaceID   sql.NullInt32
+	Workplace     Workplace
+	UserID        sql.NullInt32
+	User          User
+	ProductID     sql.NullInt32
+	Product       Product
+	NoteText      string `gorm:"uniqueIndex:unique_note_record"`
+	Note          string
+	Data          datatypes.JSON
+}
+
 type Operation struct {
 	gorm.Model
 	Name            string `gorm:"uniqueIndex:unique_operation"`
