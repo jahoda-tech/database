@@ -80,7 +80,7 @@ type UserRecord struct {
 	DateTimeEnd   sql.NullTime
 	OrderRecordID int `gorm:"uniqueIndex:unique_user_record"`
 	OrderRecord   OrderRecord
-	WorkplaceID   int `gorm:"uniqueIndex:unique_user_record"`
+	WorkplaceID   int `gorm:"uniqueIndex:unique_user_record;index"`
 	Workplace     Workplace
 	UserID        int `gorm:"uniqueIndex:unique_user_record"`
 	User          User
@@ -91,7 +91,7 @@ type DowntimeRecord struct {
 	gorm.Model
 	DateTimeStart time.Time `gorm:"uniqueIndex:unique_downtime_record"`
 	DateTimeEnd   sql.NullTime
-	WorkplaceID   int `gorm:"uniqueIndex:unique_downtime_record"`
+	WorkplaceID   int `gorm:"uniqueIndex:unique_downtime_record;index"`
 	Workplace     Workplace
 	DowntimeID    int `gorm:"uniqueIndex:unique_downtime_record"`
 	Downtime      Downtime
@@ -126,7 +126,7 @@ type BreakdownRecord struct {
 	DateTimeEnd   sql.NullTime
 	BreakdownID   int `gorm:"uniqueIndex:unique_breakdown_record"`
 	Breakdown     Breakdown
-	WorkplaceID   int `gorm:"uniqueIndex:unique_breakdown_record"`
+	WorkplaceID   int `gorm:"uniqueIndex:unique_breakdown_record;index"`
 	Workplace     Workplace
 	UserID        int `gorm:"uniqueIndex:unique_breakdown_record"`
 	User          User
@@ -140,7 +140,7 @@ type FaultRecord struct {
 	OrderRecord   OrderRecord
 	FaultID       int `gorm:"uniqueIndex:unique_fault_record"`
 	Fault         Fault
-	WorkplaceID   int `gorm:"uniqueIndex:unique_fault_record"`
+	WorkplaceID   int `gorm:"uniqueIndex:unique_fault_record;index"`
 	Workplace     Workplace
 	UserID        int `gorm:"uniqueIndex:unique_fault_record"`
 	User          User
@@ -161,7 +161,7 @@ type PackageRecord struct {
 	OrderRecord   OrderRecord
 	PackageID     int `gorm:"uniqueIndex:unique_package_record"`
 	Package       Package
-	WorkplaceID   int `gorm:"uniqueIndex:unique_package_record"`
+	WorkplaceID   int `gorm:"uniqueIndex:unique_package_record;index"`
 	Workplace     Workplace
 	UserID        int `gorm:"uniqueIndex:unique_package_record"`
 	User          User
@@ -176,7 +176,7 @@ type PartRecord struct {
 	OrderRecord   OrderRecord
 	PartID        int `gorm:"uniqueIndex:unique_part_record"`
 	Part          Part
-	WorkplaceID   int `gorm:"uniqueIndex:unique_part_record"`
+	WorkplaceID   int `gorm:"uniqueIndex:unique_part_record;index"`
 	Workplace     Workplace
 	UserID        int `gorm:"uniqueIndex:unique_part_record"`
 	User          User
@@ -252,7 +252,7 @@ type Operation struct {
 
 type WorkplaceSection struct {
 	gorm.Model
-	Name       string `gorm:"uniqueIndex:workplace_section"`
+	Name       string `gorm:"uniqueIndex:unique_workplace_section"`
 	Note       string
 	Data       datatypes.JSON
 	ExternalId sql.NullInt32 `gorm:"index"`
@@ -278,7 +278,7 @@ type Order struct {
 type Product struct {
 	gorm.Model
 	Name             string `gorm:"uniqueIndex:unique_product"`
-	Barcode          string `gorm:"uniqueIndex:unique_product, uniqueIndex:unique_barcode"`
+	Barcode          string `gorm:"uniqueIndex:unique_product;uniqueIndex:unique_barcode"`
 	Unit             sql.NullString
 	DowntimeDuration time.Duration
 	ProductTypeID    int `gorm:"default:1"`
@@ -568,17 +568,17 @@ type Device struct {
 
 type DeviceWorkplaceRecord struct {
 	gorm.Model
-	DeviceID    int `gorm:"uniqueIndex:device_workplace_record"`
+	DeviceID    int `gorm:"uniqueIndex:unique_device_workplace_record"`
 	Device      Device
-	WorkplaceID int `gorm:"uniqueIndex:device_workplace_record"`
+	WorkplaceID int `gorm:"uniqueIndex:unique_device_workplace_record"`
 	Workplace   Workplace
 	Note        string
 }
 
 type DevicePort struct {
 	gorm.Model
-	Name             string `gorm:"uniqueIndex:device_port"`
-	DeviceID         int    `gorm:"uniqueIndex:device_port"`
+	Name             string `gorm:"uniqueIndex:unique_device_port"`
+	DeviceID         int    `gorm:"uniqueIndex:unique_device_port"`
 	Device           Device
 	DevicePortTypeID int
 	DevicePortType   DevicePortType
@@ -724,7 +724,7 @@ type WebUserSettings struct {
 	gorm.Model
 	Email string `gorm:"uniqueIndex:unique_web_user_settings"`
 	Type  string `gorm:"uniqueIndex:unique_web_user_settings"`
-	Data  string
+	Data  datatypes.JSON
 	Note  string
 }
 
@@ -813,7 +813,7 @@ type Checklist struct {
 	Type               string
 	Possibilities      string
 	Text               string
-	Start              string
+	Start              sql.NullTime
 	StartInterval      int
 	Repeat             sql.NullInt32
 	WorkplaceID        sql.NullInt32
@@ -839,11 +839,11 @@ type ChecklistRecord struct {
 	DateTime       time.Time `gorm:"uniqueIndex:unique_checklist_record"`
 	ChecklistID    int       `gorm:"uniqueIndex:unique_checklist_record"`
 	Checklist      Checklist
-	WorkplaceID    int `gorm:"uniqueIndex:unique_checklist_record"`
+	WorkplaceID    int `gorm:"uniqueIndex:unique_checklist_record;index"`
 	Workplace      Workplace
 	UserID         int `gorm:"uniqueIndex:unique_checklist_record"`
 	User           User
-	OrderID        int
+	OrderID        sql.NullInt32
 	Order          Order
 	OperationID    sql.NullInt32
 	Operation      Operation
