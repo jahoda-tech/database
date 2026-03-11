@@ -813,7 +813,7 @@ type Checklist struct {
 	Type               string
 	Possibilities      string
 	Text               string
-	Start              sql.NullTime
+	Start              string
 	StartInterval      int
 	Repeat             sql.NullInt32
 	WorkplaceID        sql.NullInt32
