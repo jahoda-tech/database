@@ -748,7 +748,7 @@ type Maintenance struct {
 	MaintenanceType   MaintenanceType
 	Image             []byte
 	ImageUrl          string
-	RequestedNumber   sql.NullInt32
+	RequestedNumber   sql.NullFloat64
 	ResuestedString   string
 	Note              string
 	Data              datatypes.JSON
@@ -806,6 +806,7 @@ type MaintenanceRecord struct {
 	ControlDateTime   sql.NullTime
 	Image             []byte
 	ImageUrl          string
+	SavedNumber       sql.NullFloat64
 	Note              string
 }
 
