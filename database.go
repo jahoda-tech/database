@@ -748,6 +748,8 @@ type Maintenance struct {
 	MaintenanceType   MaintenanceType
 	Image             []byte
 	ImageUrl          string
+	RequestedNumber   sql.NullInt32
+	ResuestedString   string
 	Note              string
 	Data              datatypes.JSON
 	ExternalId        sql.NullInt32 `gorm:"index"`
