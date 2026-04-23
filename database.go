@@ -748,8 +748,8 @@ type Maintenance struct {
 	MaintenanceType   MaintenanceType
 	Image             []byte
 	ImageUrl          string
-	RequestedNumber   sql.NullFloat64
-	RequestedString   string
+	RequestedValue    sql.NullFloat64
+	RequestedUnit     string
 	Note              string
 	Data              datatypes.JSON
 	ExternalId        sql.NullInt32 `gorm:"index"`
@@ -806,7 +806,7 @@ type MaintenanceRecord struct {
 	ControlDateTime   sql.NullTime
 	Image             []byte
 	ImageUrl          string
-	SavedNumber       sql.NullFloat64
+	MeasuredValue     sql.NullFloat64
 	Note              string
 }
 
