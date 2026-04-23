@@ -749,7 +749,7 @@ type Maintenance struct {
 	Image             []byte
 	ImageUrl          string
 	RequestedNumber   sql.NullFloat64
-	ResuestedString   string
+	RequestedString   string
 	Note              string
 	Data              datatypes.JSON
 	ExternalId        sql.NullInt32 `gorm:"index"`
