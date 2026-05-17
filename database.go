@@ -728,9 +728,9 @@ type WorkplaceSectionRecord struct {
 
 type WebUserSettings struct {
 	gorm.Model
-	Email string         `gorm:"uniqueIndex:unique_web_user_settings"`
-	Type  string         `gorm:"uniqueIndex:unique_web_user_settings"`
-	Data  datatypes.JSON `gorm:"type:jsonb;index:,type:gin"`
+	Email string `gorm:"uniqueIndex:unique_web_user_settings"`
+	Type  string `gorm:"uniqueIndex:unique_web_user_settings"`
+	Data  string
 	Note  string
 }
 
