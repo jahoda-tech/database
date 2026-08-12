@@ -348,6 +348,7 @@ type Workplace struct {
 	Code                       string
 	WorkplaceModeID            int `gorm:"index"`
 	WorkplaceMode              WorkplaceMode
+	PlannedDuration            time.Duration `gorm:"default:86400000000000"`
 	Location                   string
 	Phases                     int
 	Voltage                    int
