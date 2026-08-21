@@ -382,6 +382,7 @@ type WorkplacePort struct {
 	Color        sql.NullString
 	CounterOK    bool `gorm:"default:false"`
 	CounterNOK   bool `gorm:"default:false"`
+	Consumption  bool `gorm:"default:false"`
 	HighValue    float32
 	LowValue     float32
 	Note         string
