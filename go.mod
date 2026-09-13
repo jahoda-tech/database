@@ -1,6 +1,6 @@
 module github.com/jahoda-tech/database
 
-go 1.26
+go 1.27
 
 require (
 	gorm.io/datatypes v1.2.7
