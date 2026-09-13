@@ -620,8 +620,8 @@ type DevicePortSpecialRecord struct {
 
 type DevicePortDigitalRecord struct {
 	ID           int       `gorm:"primaryKey"`
-	DateTime     time.Time `gorm:"uniqueIndex:unique_digital_records_data,priority:2;index:idx_digital_record_brin,type:brin"`
-	DevicePortID int       `gorm:"uniqueIndex:unique_digital_records_data,priority:1"`
+	DateTime     time.Time `gorm:"uniqueIndex:unique_digital_records_data,priority:2;index:idx_digital_record_brin,type:brin;index:idx_digital_record_zero,priority:2,where:data = 0,option:CONCURRENTLY"`
+	DevicePortID int       `gorm:"uniqueIndex:unique_digital_records_data,priority:1;index:idx_digital_record_zero,priority:1"`
 	DevicePort   DevicePort
 	Data         int
 }
