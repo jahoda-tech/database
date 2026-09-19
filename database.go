@@ -51,17 +51,17 @@ type State struct {
 	gorm.Model
 	Name  string `gorm:"uniqueIndex:unique_state"`
 	Color string
-	Type  string
+	Type  string `gorm:"index"`
 	Note  string
 	Data  datatypes.JSON `gorm:"type:jsonb;index:,type:gin"`
 }
 
 type StateRecord struct {
 	gorm.Model
-	DateTimeStart time.Time `gorm:"uniqueIndex:unique_state_records_data,priority:3;index:idx_state_record_brin,type:brin"`
+	DateTimeStart time.Time `gorm:"uniqueIndex:unique_state_records_data,priority:3;index:idx_state_record_brin,type:brin;index:idx_state_record_workplace_time,priority:2,option:CONCURRENTLY"`
 	StateID       int       `gorm:"uniqueIndex:unique_state_records_data,priority:2;index"`
 	State         State
-	WorkplaceID   int `gorm:"uniqueIndex:unique_state_records_data,priority:1"`
+	WorkplaceID   int `gorm:"uniqueIndex:unique_state_records_data,priority:1;index:idx_state_record_workplace_time,priority:1"`
 	Workplace     Workplace
 	Note          string
 }
@@ -428,7 +428,7 @@ type User struct {
 	UserTypeID int `gorm:"index"`
 	UserType   UserType
 	Barcode    string `gorm:"index"`
-	Email      string `gorm:"uniqueIndex:unique_user"`
+	Email      string `gorm:"uniqueIndex:unique_user;index"`
 	Password   string
 	Phone      string
 	Pin        string `gorm:"index"`
