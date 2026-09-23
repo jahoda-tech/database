@@ -197,6 +197,7 @@ Embeds `gorm.Model`. Unique: `(name)`.
 | `consumption_type_id` | int | idx, FK → consumption_types, default: 1 | Energy-metering category. |
 | `consumption_impulses_per_watt` | float32 | | Calibration for impulse energy meters. |
 | `unit` | string | | Display unit for produced counts. |
+| `manual` | bool | default: false | State comes from open order/user/downtime records instead of device ports (state_service). |
 | `note`, `data`, `external_id` | | GIN / idx | Standard recurring fields. |
 
 ### `workplace_modes` — WorkplaceMode

@@ -357,6 +357,7 @@ type Workplace struct {
 	ConsumptionType            ConsumptionType
 	ConsumptionImpulsesPerWatt float32
 	Unit                       string
+	Manual                     bool `gorm:"default:false"`
 	Note                       string
 	Data                       datatypes.JSON `gorm:"type:jsonb;index:,type:gin"`
 	ExternalId                 sql.NullInt64  `gorm:"index"`
