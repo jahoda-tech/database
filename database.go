@@ -97,7 +97,7 @@ type DowntimeRecord struct {
 	gorm.Model
 	DateTimeStart time.Time    `gorm:"uniqueIndex:unique_downtime_record;index:idx_downtime_record_brin,type:brin"`
 	DateTimeEnd   sql.NullTime `gorm:"index"`
-	WorkplaceID   int          `gorm:"uniqueIndex:unique_downtime_record;index;index:idx_downtime_record_open,where:date_time_end IS NULL"`
+	WorkplaceID   int          `gorm:"uniqueIndex:unique_downtime_record;index;index:idx_downtime_record_open,where:date_time_end IS NULL;index:idx_downtime_record_pending,where:date_time_end IS NOT NULL AND deleted_at IS NULL AND note NOT ILIKE '%updated%',option:CONCURRENTLY"`
 	Workplace     Workplace
 	DowntimeID    int `gorm:"uniqueIndex:unique_downtime_record;index"`
 	Downtime      Downtime
@@ -198,7 +198,7 @@ type OrderRecord struct {
 	Order              Order
 	OperationID        int `gorm:"uniqueIndex:unique_order_record;index"`
 	Operation          Operation
-	WorkplaceID        int `gorm:"uniqueIndex:unique_order_record;index:idx_order_datetime_workplace;index:idx_order_workplace;index:idx_order_record_open,where:date_time_end IS NULL"`
+	WorkplaceID        int `gorm:"uniqueIndex:unique_order_record;index:idx_order_datetime_workplace;index:idx_order_workplace;index:idx_order_record_open,where:date_time_end IS NULL;index:idx_order_record_pending,where:date_time_end IS NOT NULL AND deleted_at IS NULL AND note NOT ILIKE '%updated%',option:CONCURRENTLY"`
 	Workplace          Workplace
 	UserID             sql.NullInt64 `gorm:"uniqueIndex:unique_order_record;index"`
 	User               User
