@@ -47,6 +47,33 @@ type SystemRecord struct {
 	Note                        string
 }
 
+type CommunicationRecord struct {
+	gorm.Model
+	DateTimeStart     time.Time    `gorm:"index:idx_communication_record_brin,type:brin"`
+	DateTimeEnd       sql.NullTime `gorm:"index"`
+	Kind              string       `gorm:"index:idx_communication_record_operation,priority:3"`
+	ServiceName       string       `gorm:"index:idx_communication_record_operation,priority:1"`
+	ExternalSystem    string
+	Direction         string
+	Entity            string
+	Target            string `gorm:"index:idx_communication_record_operation,priority:2"`
+	Status            string
+	RunCount          int
+	CountFound        int
+	CountOk           int
+	CountSkipped      int
+	CountFailed       int
+	CountDeleted      int
+	WorkplaceID       sql.NullInt64 `gorm:"index"`
+	Workplace         Workplace
+	RecordTable       string        `gorm:"index:idx_communication_record_record,priority:1"`
+	RecordID          sql.NullInt64 `gorm:"index:idx_communication_record_record,priority:2"`
+	ExternalReference string
+	Message           string
+	Note              string
+	Data              datatypes.JSON `gorm:"type:jsonb;index:,type:gin"`
+}
+
 type State struct {
 	gorm.Model
 	Name  string `gorm:"uniqueIndex:unique_state"`

@@ -2,7 +2,7 @@
 
 Reference documentation for the `github.com/jahoda-tech/database` schema — the shared GORM model package for a Manufacturing Execution System (MES).
 
-- **Source of truth:** `database.go` (80 struct definitions, one file)
+- **Source of truth:** `database.go` (81 struct definitions, one file)
 - **Target database:** PostgreSQL (consumers use `gorm.io/driver/postgres`)
 - **ORM:** GORM v2; tables are created/updated by consuming services via `AutoMigrate`
 - This document is a hand-maintained snapshot. Update it when `database.go` changes.
@@ -27,7 +27,8 @@ Reference documentation for the `github.com/jahoda-tech/database` schema — the
 14. [Business Partners](#12-business-partners)
 15. [Aggregations & Telemetry](#13-aggregations--telemetry)
 16. [Web & Application Support](#14-web--application-support)
-17. [Notes & Caveats](#notes--caveats)
+17. [Integrations](#15-integrations)
+18. [Notes & Caveats](#notes--caveats)
 
 ---
 
@@ -119,6 +120,7 @@ Table names are GORM defaults: snake_case, pluralized struct name (`Workplace` �
 | Business partners | `companies`, `company_types` |
 | Aggregations & telemetry | `summary_records`, `shift_summary_records`, `system_records` |
 | Web & application support | `settings`, `locales`, `page_counts`, `web_user_records`, `web_user_settings`, `reports`, `bookmarks`, `layouts`, `holidays` |
+| Integrations | `communication_records` |
 
 ### Core production flow
 
@@ -1434,6 +1436,50 @@ Embeds `gorm.Model`. Unique: `(date, country_code)`.
 | `is_holiday` | bool | default: false | Whether the day is a holiday. |
 | `holiday_name` | string | | Name of the holiday. |
 | `note`, `data` | | GIN | Standard recurring fields. |
+
+---
+
+## 15. Integrations
+
+### `communication_records` — CommunicationRecord
+
+Log of the traffic between the MES and external systems (ERP, attendance, file shares), written by the `*_communication_service` services and shown on the mes_webservice data page. It is a log only: services keep their own "already exported" markers and never read this table to decide what to send.
+
+Two kinds of rows share the table:
+
+- **`run`** — one row per operation per cycle. An operation is one `service_name` + `target`, for example the zamet import from `/productionOper`. Carries the counts.
+- **`item`** — one row per exported record, whatever the outcome, and one row per imported record that failed. Carries the record references; its counts stay 0, so totals over the table never count a record twice.
+
+**Collapse rule.** Before inserting, a service loads the last row with the same `service_name`, `target` and `kind` (for `item` rows also the same record). When both rows have the same `status`, `message` and `count_failed` and neither wrote anything (`count_ok`, `count_skipped` and `count_deleted` all 0), the service extends that row instead: `date_time_end` = now, `run_count` + 1, `count_found` overwritten. Idle polling then becomes one row whose time span works as a heartbeat, and a record that fails the same way on every retry stays one row.
+
+**Retention.** mes_webservice hard-deletes rows whose `COALESCE(date_time_end, date_time_start)` is older than 90 days.
+
+Embeds `gorm.Model`. No unique constraint. Composite index `idx_communication_record_operation` on `(service_name, target, kind)` serves the collapse lookup; `idx_communication_record_record` on `(record_table, record_id)` finds all traffic about one MES record.
+
+| Column | Type | Attributes | Description |
+|---|---|---|---|
+| `date_time_start` | time.Time | BRIN | When the run or the item transfer started. |
+| `date_time_end` | sql.NullTime | idx | When it finished; for a collapsed row, when the last collapsed run finished. |
+| `kind` | string | idx (operation) | `run` or `item`. |
+| `service_name` | string | idx (operation, leading) | Writing service, e.g. `zamet_communication_service`. |
+| `external_system` | string | | Other side, e.g. `Karat`, `Helios`, `K2`, `Horry`, `BIS`. |
+| `direction` | string | | `import` (external → MES) or `export` (MES → external). |
+| `entity` | string | | MES table written by an import or read by an export, e.g. `users`, `order_records`. |
+| `target` | string | idx (operation) | External endpoint, table or file, e.g. `/reportProductionEvents`, `dba.imp_data`. |
+| `status` | string | | `run`: `ok`, `partial` (some rows failed), `error` (the operation failed). `item`: `ok`, `skipped` (marked done without sending), `error`. |
+| `run_count` | int | | Runs collapsed into this row; 1 for a fresh row. |
+| `count_found` | int | | `run` only: rows read from the source. |
+| `count_ok` | int | | `run` only: rows created, changed or sent. A re-read row that did not change is not counted. |
+| `count_skipped` | int | | `run` only: rows marked done without sending. |
+| `count_failed` | int | | `run` only: rows that failed. |
+| `count_deleted` | int | | `run` only: rows deleted, deactivated or revoked. |
+| `workplace_id` | sql.NullInt64 | idx, FK → workplaces | Workplace concerned, when there is one. |
+| `record_table` | string | idx (record, leading) | `item` only: MES table of the record, e.g. `order_records`, `downtime_records`, `stock_records`. |
+| `record_id` | sql.NullInt64 | idx (record) | `item` only: id of the record in `record_table`. |
+| `external_reference` | string | | `item` only: the record's id in the external system, as text. |
+| `message` | string | | Error text or skip reason. |
+| `note` | string | | Annotation. |
+| `data` | datatypes.JSON | GIN | Extra detail. Fixed keys: `http_status`, `request` and `response` (on error only, each cut to 8 KB), `cursor` (incremental watermark used). Never holds API keys or tokens. |
 
 ---
 
