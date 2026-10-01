@@ -1466,7 +1466,7 @@ Embeds `gorm.Model`. No unique constraint. Composite index `idx_communication_re
 | `direction` | string | | `import` (external → MES) or `export` (MES → external). |
 | `entity` | string | | MES table written by an import or read by an export, e.g. `users`, `order_records`. |
 | `target` | string | idx (operation) | External endpoint, table or file, e.g. `/reportProductionEvents`, `dba.imp_data`. |
-| `status` | string | | `run`: `ok`, `partial` (some rows failed), `error` (the operation failed). `item`: `ok`, `skipped` (marked done without sending), `error`. |
+| `status` | string | | `run`: `ok`, `partial` (some rows failed), `error` (the operation failed, or every row it read failed). `item`: `ok`, `skipped` (marked done without sending), `error`. |
 | `run_count` | int | | Runs collapsed into this row; 1 for a fresh row. |
 | `count_found` | int | | `run` only: rows read from the source. |
 | `count_ok` | int | | `run` only: rows created, changed or sent. A re-read row that did not change is not counted. |
