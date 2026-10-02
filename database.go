@@ -681,7 +681,9 @@ type Locale struct {
 
 type WebUserRecord struct {
 	gorm.Model
-	UserEmail string    `gorm:"uniqueIndex:unique_web_user_record"`
+	UserEmail string        `gorm:"uniqueIndex:unique_web_user_record"`
+	UserID    sql.NullInt64 `gorm:"index"`
+	User      User
 	WebPage   string    `gorm:"uniqueIndex:unique_web_user_record"`
 	DateTime  time.Time `gorm:"uniqueIndex:unique_web_user_record;index:idx_web_user_record_brin,type:brin"`
 	Note      string
